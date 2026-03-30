@@ -113,7 +113,7 @@ h1 {
 }
 
 h2 {
-    font-size: 48px;
+    font-size: 42px;
     line-height: 60px
 }
 
@@ -659,6 +659,7 @@ p {
     -webkit-transition: 0.3s;
     transition: 0.3s;
     overflow: visible;
+    min-height: 360px;
 }
 
 .core-feature-single .hover-shape {
@@ -2722,8 +2723,8 @@ p {
 .get-started h2 {
     font-weight: 600;
     color: #fff;
-    font-size: 40px;
-    line-height: 50px;
+    font-size: 36px;
+    line-height: 46px;
     margin: 0 0 20px;
 }
 
