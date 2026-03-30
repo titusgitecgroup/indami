@@ -38,6 +38,7 @@ blog single page
 ---------------------------------------------------------------------------------------*/
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700|Poppins:400,500,600,700');
+
 html,
 body {
     width: 100%;
@@ -107,12 +108,12 @@ h6,
 }
 
 h1 {
-    font-size: 60px;
+    font-size: 56px;
     line-height: 70px
 }
 
 h2 {
-    font-size: 50px;
+    font-size: 48px;
     line-height: 60px
 }
 
@@ -189,6 +190,7 @@ p {
     0% {
         -webkit-transform: scale(0)
     }
+
     100% {
         -webkit-transform: scale(1.0);
         opacity: 0;
@@ -200,10 +202,101 @@ p {
         -webkit-transform: scale(0);
         transform: scale(0);
     }
+
     100% {
         -webkit-transform: scale(1.0);
         transform: scale(1.0);
         opacity: 0;
+    }
+}
+
+@keyframes ani-rotate {
+    from {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes sliderShape {
+
+    0%,
+    100% {
+        border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+        -webkit-transform: translate3d(0, 0, 0) rotateZ(0.01deg);
+        transform: translate3d(0, 0, 0) rotateZ(0.01deg);
+    }
+
+    34% {
+        border-radius: 70% 30% 46% 54% / 30% 29% 71% 70%;
+        -webkit-transform: translate3d(0, 5px, 0) rotateZ(0.01deg);
+        transform: translate3d(0, 5px, 0) rotateZ(0.01deg);
+    }
+
+    50% {
+        -webkit-transform: translate3d(0, 0, 0) rotateZ(0.01deg);
+        transform: translate3d(0, 0, 0) rotateZ(0.01deg);
+    }
+
+    67% {
+        border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+        -webkit-transform: translate3d(0, -3px, 0) rotateZ(0.01deg);
+        transform: translate3d(0, -3px, 0) rotateZ(0.01deg);
+    }
+}
+
+@-webkit-keyframes zoominoutsinglefeatured {
+    0% {
+        -webkit-transform: scale(1, 1);
+        transform: scale(1, 1);
+    }
+
+    50% {
+        -webkit-transform: scale(1.2, 1.2);
+        transform: scale(1.2, 1.2);
+    }
+
+    100% {
+        -webkit-transform: scale(1, 1);
+        transform: scale(1, 1);
+    }
+}
+
+@keyframes zoominoutsinglefeatured {
+    0% {
+        -webkit-transform: scale(1, 1);
+        transform: scale(1, 1);
+    }
+
+    50% {
+        -webkit-transform: scale(1.2, 1.2);
+        transform: scale(1.2, 1.2);
+    }
+
+    100% {
+        -webkit-transform: scale(1, 1);
+        transform: scale(1, 1);
+    }
+}
+
+@keyframes upndown {
+    0% {
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
+    }
+
+    50% {
+        -webkit-transform: translateY(20px);
+        transform: translateY(20px);
+    }
+
+    100% {
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
     }
 }
 
@@ -226,15 +319,15 @@ p {
     position: fixed;
     width: 100%;
     z-index: 9999;
-    background: -webkit-gradient( linear, left top, right top, from(#20007e), to(#e61eb6));
-    background: linear-gradient( 90deg, #20007e 0%, #e61eb6 100%);
+    background: -webkit-gradient(linear, left top, right top, from(#20007e), to(#e61eb6));
+    background: linear-gradient(90deg, #20007e 0%, #e61eb6 100%);
     padding: 20px 0;
     -webkit-box-shadow: 0 0 10px #111;
     box-shadow: 0 0 10px #111
 }
 
 #header.two.sticky {
-    background: linear-gradient( 30deg, rgb(157, 91, 254) 0%, rgb(56, 144, 254) 100%);
+    background: linear-gradient(30deg, rgb(157, 91, 254) 0%, rgb(56, 144, 254) 100%);
 }
 
 #header.sticky .navbar {
@@ -298,7 +391,53 @@ p {
     background-image: url(../images/home-bg-1.png);
     background-repeat: no-repeat;
     background-position: bottom;
-    margin-bottom: 10px
+    margin-bottom: 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+#home-area.bg-1 .home-bg-circle {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+#home-area.bg-1 .home-bg-circle .home-blob {
+    position: absolute;
+    display: block;
+}
+
+#home-area.bg-1 .home-bg-circle .home-blob-1 {
+    right: 30%;
+    top: 90px;
+    width: min(14vw, 180px);
+    height: min(14vw, 180px);
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, rgba(174, 14, 233, 0.5), rgba(46, 25, 167, 0.2));
+    opacity: 0.55;
+    -webkit-animation: zoominoutsinglefeatured 4s infinite;
+    animation: zoominoutsinglefeatured 4s infinite;
+}
+
+#home-area.bg-1 .home-bg-circle .home-blob-2 {
+    right: 38%;
+    top: 280px;
+    width: min(16vw, 200px);
+    height: min(16vw, 200px);
+    border-radius: 62% 47% 82% 35% / 45% 45% 80% 66%;
+    background: linear-gradient(145deg, rgba(230, 30, 182, 0.4), rgba(32, 0, 126, 0.35));
+    opacity: 0.45;
+    -webkit-animation: sliderShape 5s linear infinite;
+    animation: sliderShape 5s linear infinite;
+}
+
+#home-area .container {
+    position: relative;
+    z-index: 1;
 }
 
 #home-area.bg-2 {
@@ -325,31 +464,29 @@ p {
 
 .caption-btns a {
     display: inline-block;
+    position: relative;
     margin: 0 8px;
     font-weight: 600;
     color: #fff;
 }
 
-.caption-btns a {
-    display: inline-block;
-    margin: 0 8px;
-    font-weight: 600;
-    color: #fff;
+.caption-btns .popup-video {
+    margin: 0 20px;
 }
 
-.caption-btns a i {
+.caption-btns .popup-video i {
     display: inline-block;
     width: 40px;
     height: 40px;
     line-height: 40px;
     border-radius: 50%;
     font-size: 16px;
-    background-image: -webkit-gradient( linear, left top, right top, from(#ae0ee9), to(#2e19a7));
-    background-image: linear-gradient( 90deg, #ae0ee9 0%, #2e19a7 100%);
+    background-image: -webkit-gradient(linear, left top, right top, from(#ae0ee9), to(#2e19a7));
+    background-image: linear-gradient(90deg, #ae0ee9 0%, #2e19a7 100%);
     background-size: 100% auto;
     text-align: center;
     border: 1px dashed #fff;
-    margin-right: 8px
+    margin-right: 20px;
 }
 
 .caption-btns.v2 a i {
@@ -358,8 +495,8 @@ p {
 }
 
 .caption-btns a.bg {
-    background-image: -webkit-gradient( linear, left top, right top, from(#ae0ee9), to(#2e19a7));
-    background-image: linear-gradient( 90deg, #ae0ee9 0%, #2e19a7 100%);
+    background-image: -webkit-gradient(linear, left top, right top, from(#ae0ee9), to(#2e19a7));
+    background-image: linear-gradient(90deg, #ae0ee9 0%, #2e19a7 100%);
     background-size: 100% auto;
     padding: 12px 30px;
     border-radius: 30px
@@ -382,8 +519,8 @@ p {
     display: block;
     width: 40px;
     height: 40px;
-    background-image: -webkit-gradient( linear, left top, right top, from(#ae0ee9), to(#2e19a7));
-    background-image: linear-gradient( 90deg, #ae0ee9 0%, #2e19a7 100%);
+    background-image: -webkit-gradient(linear, left top, right top, from(#ae0ee9), to(#2e19a7));
+    background-image: linear-gradient(90deg, #ae0ee9 0%, #2e19a7 100%);
     text-align: center;
     line-height: 40px;
     font-size: 20px;
@@ -401,7 +538,7 @@ p {
 
 .caption-download-btns li a:hover,
 .caption-btns a.bg:hover,
-.caption-btns a i:hover {
+.caption-btns .popup-video i:hover {
     background-size: 200% auto
 }
 
@@ -447,6 +584,59 @@ p {
     background-image: url(../images/feature-bg-1.png);
 }
 
+#core-feature-area.bg-1 .core-feature-circle .core-feature-blob {
+    position: absolute;
+    opacity: 0.45;
+    -webkit-animation: zoominoutsinglefeatured 4s infinite;
+    animation: zoominoutsinglefeatured 4s infinite;
+}
+
+#core-feature-area.bg-1 .core-feature-circle .core-feature-blob-1 {
+    right: 1%;
+    top: 0;
+    width: min(11vw, 140px);
+    height: min(11vw, 140px);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(174, 14, 233, 0.35), rgba(46, 25, 167, 0.1));
+}
+
+#core-feature-area.bg-1 .core-feature-circle .core-feature-blob-2 {
+    right: 16%;
+    top: 14%;
+    width: min(13vw, 160px);
+    height: min(13vw, 160px);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(230, 30, 182, 0.3), rgba(32, 0, 126, 0.12));
+    -webkit-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+}
+
+#core-feature-area.bg-1 .core-feature-circle .core-feature-blob-3 {
+    right: 5%;
+    top: 30%;
+    width: min(6vw, 80px);
+    height: min(6vw, 80px);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 132, 255, 0.35), rgba(46, 25, 167, 0.1));
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+}
+
+.core-feature-circle {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+#core-feature-area .container {
+    position: relative;
+    z-index: 1;
+}
+
 #core-feature-area.bg-2 {
     background-image: url(../images/feature-bg-2.png);
 }
@@ -460,13 +650,84 @@ p {
 }
 
 .core-feature-single {
+    position: relative;
     -webkit-box-shadow: 0px 10px 30px 0px rgba(21, 10, 82, 0.2);
     box-shadow: 0px 10px 30px 0px rgba(21, 10, 82, 0.2);
     padding: 60px 30px 10px;
     border-radius: 4px;
     background-color: #fff;
     -webkit-transition: 0.3s;
-    transition: 0.3s
+    transition: 0.3s;
+    overflow: visible;
+}
+
+.core-feature-single .hover-shape {
+    width: 20px;
+    height: auto;
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+    pointer-events: none;
+    -webkit-transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+    transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+    -webkit-transform: rotate(260deg);
+    transform: rotate(260deg);
+}
+
+.core-feature-single .hover-shape-1 {
+    left: 30px;
+    top: 30px;
+}
+
+.core-feature-single .hover-shape-2 {
+    right: 35%;
+    top: 40px;
+}
+
+.core-feature-single .hover-shape-3 {
+    right: 30px;
+    bottom: 40%;
+}
+
+.core-feature-single .hover-shape-4 {
+    right: 35%;
+    bottom: 40px;
+}
+
+.core-feature-single .hover-shape-5 {
+    left: 30px;
+    bottom: 35%;
+}
+
+.core-feature-single:hover .hover-shape {
+    opacity: 1;
+    -webkit-transform: rotate(100deg);
+    transform: rotate(100deg);
+}
+
+.core-feature-single:hover .hover-shape-1 {
+    left: -25px;
+    top: 25px;
+}
+
+.core-feature-single:hover .hover-shape-2 {
+    right: 35%;
+    top: -30px;
+}
+
+.core-feature-single:hover .hover-shape-3 {
+    right: -20px;
+    bottom: 40%;
+}
+
+.core-feature-single:hover .hover-shape-4 {
+    right: 35%;
+    bottom: -30px;
+}
+
+.core-feature-single:hover .hover-shape-5 {
+    left: -25px;
+    bottom: 35%;
 }
 
 .core-feature-single .icon {
@@ -594,8 +855,8 @@ p {
 }
 
 .load-more-btn a {
-    background-image: -webkit-gradient( linear, left top, right top, from(rgb(174, 14, 233)), to(rgb(46, 25, 167)));
-    background-image: linear-gradient( 90deg, rgb(174, 14, 233) 0%, rgb(46, 25, 167) 100%);
+    background-image: -webkit-gradient(linear, left top, right top, from(rgb(174, 14, 233)), to(rgb(46, 25, 167)));
+    background-image: linear-gradient(90deg, rgb(174, 14, 233) 0%, rgb(46, 25, 167) 100%);
     -webkit-box-shadow: 0px 10px 30px 0px rgba(21, 10, 82, 0.35);
     box-shadow: 0px 10px 30px 0px rgba(21, 10, 82, 0.35);
     display: inline-block;
@@ -632,6 +893,48 @@ p {
     background-image: url(../images/about-bg-1.png)
 }
 
+#about-area.bg-1 .about-area-circle .about-blob {
+    position: absolute;
+    opacity: 0.45;
+    -webkit-animation: zoominoutsinglefeatured 4s infinite;
+    animation: zoominoutsinglefeatured 4s infinite;
+}
+
+#about-area.bg-1 .about-area-circle .about-blob-1 {
+    right: 32%;
+    top: 32%;
+    width: min(14vw, 180px);
+    height: min(14vw, 180px);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(174, 14, 233, 0.35), rgba(46, 25, 167, 0.12));
+}
+
+#about-area.bg-1 .about-area-circle .about-blob-2 {
+    right: 2%;
+    top: 38%;
+    width: min(10vw, 130px);
+    height: min(10vw, 130px);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 132, 255, 0.3), rgba(46, 25, 167, 0.1));
+    -webkit-animation-delay: 0.6s;
+    animation-delay: 0.6s;
+}
+
+.about-area-circle {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+#about-area .container {
+    position: relative;
+    z-index: 1;
+}
+
 #about-area.bg-2 {
     background-image: url(../images/about-bg-2.png)
 }
@@ -644,6 +947,7 @@ p {
     position: absolute;
     top: 120px;
     right: 110px;
+    z-index: 2;
 }
 
 .about-cont {
@@ -695,8 +999,8 @@ p {
     height: 65px;
     line-height: 65px;
     border-radius: 50%;
-    background-image: -webkit-gradient( linear, left bottom, left top, from(rgb(32, 0, 126)), to(rgb(230, 30, 182)));
-    background-image: linear-gradient( 0deg, rgb(32, 0, 126) 0%, rgb(230, 30, 182) 100%);
+    background-image: -webkit-gradient(linear, left bottom, left top, from(rgb(32, 0, 126)), to(rgb(230, 30, 182)));
+    background-image: linear-gradient(0deg, rgb(32, 0, 126) 0%, rgb(230, 30, 182) 100%);
     text-align: center;
     font-size: 30px;
     color: #fff;
@@ -705,8 +1009,8 @@ p {
 }
 
 .about-info-single.two .icon i {
-    background-image: -webkit-gradient( linear, left top, right top, from(rgb(255, 170, 87)), to(rgb(254, 92, 118)));
-    background-image: linear-gradient( 90deg, rgb(255, 170, 87) 0%, rgb(254, 92, 118) 100%);
+    background-image: -webkit-gradient(linear, left top, right top, from(rgb(255, 170, 87)), to(rgb(254, 92, 118)));
+    background-image: linear-gradient(90deg, rgb(255, 170, 87) 0%, rgb(254, 92, 118) 100%);
     -webkit-box-shadow: 0px 8px 15px -5px rgb(255, 170, 87);
     box-shadow: 0px 8px 15px -5px rgb(255, 170, 87)
 }
@@ -723,7 +1027,7 @@ p {
 ---------------------------------------------------------------------------------------*/
 
 #video-area {
-    padding: 114px 0 100px;
+    padding: 60px 0;
     background-repeat: no-repeat;
     background-position: bottom;
     position: relative;
@@ -762,6 +1066,11 @@ p {
 
 .counter.title p {
     color: #e8f2fe
+}
+
+.value-statement-area {
+    background: -webkit-gradient(linear, left top, right top, from(#20007e), to(#e61eb6));
+    background: linear-gradient(90deg, #20007e 0%, #e61eb6 100%);
 }
 
 .video-cont {
@@ -827,21 +1136,25 @@ p {
         transform: scale(0.85);
         opacity: 1;
     }
+
     25% {
         -webkit-transform: scale(1.05);
         transform: scale(1.05);
         opacity: 0.8;
     }
+
     50% {
         -webkit-transform: scale(1.2);
         transform: scale(1.2);
         opacity: 0.55;
     }
+
     75% {
         -webkit-transform: scale(1.32);
         transform: scale(1.32);
         opacity: 0.3;
     }
+
     100% {
         -webkit-transform: scale(1.4);
         transform: scale(1.4);
@@ -855,21 +1168,25 @@ p {
         transform: scale(0.85);
         opacity: 1;
     }
+
     25% {
         -webkit-transform: scale(1.05);
         transform: scale(1.05);
         opacity: 0.8;
     }
+
     50% {
         -webkit-transform: scale(1.2);
         transform: scale(1.2);
         opacity: 0.55;
     }
+
     75% {
         -webkit-transform: scale(1.32);
         transform: scale(1.32);
         opacity: 0.3;
     }
+
     100% {
         -webkit-transform: scale(1.4);
         transform: scale(1.4);
@@ -922,7 +1239,8 @@ p {
 }
 
 .counter-single p {
-    color: #d2d7fc;
+    /* color: #d2d7fc; */
+    color: #fff;
     text-transform: uppercase;
     font-size: 16px
 }
@@ -990,7 +1308,7 @@ p {
 }
 
 .awesome-feat-single {
-    background-image: linear-gradient( 160deg, rgb(255, 255, 255) 53%, rgb(251, 220, 244) 100%);
+    background-image: linear-gradient(160deg, rgb(255, 255, 255) 53%, rgb(251, 220, 244) 100%);
     -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
     border-radius: 22px;
@@ -1000,8 +1318,8 @@ p {
 }
 
 .awesome-feat-single .icon {
-    background-image: -webkit-gradient( linear, left top, right top, from(rgb(255, 170, 87)), to(rgb(254, 92, 118)));
-    background-image: linear-gradient( 90deg, rgb(255, 170, 87) 0%, rgb(254, 92, 118) 100%);
+    background-image: -webkit-gradient(linear, left top, right top, from(rgb(255, 170, 87)), to(rgb(254, 92, 118)));
+    background-image: linear-gradient(90deg, rgb(255, 170, 87) 0%, rgb(254, 92, 118) 100%);
     -webkit-box-shadow: 0px 8px 10px 0px rgba(254, 92, 118, 0.6);
     box-shadow: 0px 8px 10px 0px rgba(254, 92, 118, 0.6);
     width: 90px;
@@ -1012,15 +1330,15 @@ p {
 }
 
 .awesome-feat-single .icon.two {
-    background-image: -webkit-gradient( linear, left top, right top, from(rgb(32, 0, 126)), to(rgb(230, 30, 182)));
-    background-image: linear-gradient( 90deg, rgb(32, 0, 126) 0%, rgb(230, 30, 182) 100%);
+    background-image: -webkit-gradient(linear, left top, right top, from(rgb(32, 0, 126)), to(rgb(230, 30, 182)));
+    background-image: linear-gradient(90deg, rgb(32, 0, 126) 0%, rgb(230, 30, 182) 100%);
     -webkit-box-shadow: 0px 8px 10px 0px rgba(230, 30, 182, 0.4);
     box-shadow: 0px 8px 10px 0px rgba(230, 30, 182, 0.4);
 }
 
 .awesome-feat-single .icon.three {
-    background-image: -webkit-gradient( linear, left top, right top, from(rgb(63, 47, 188)), to(rgb(2, 217, 223)));
-    background-image: linear-gradient( 90deg, rgb(63, 47, 188) 0%, rgb(2, 217, 223) 100%);
+    background-image: -webkit-gradient(linear, left top, right top, from(rgb(63, 47, 188)), to(rgb(2, 217, 223)));
+    background-image: linear-gradient(90deg, rgb(63, 47, 188) 0%, rgb(2, 217, 223) 100%);
     -webkit-box-shadow: 0px 8px 10px 0px rgba(2, 217, 223, 0.4);
     box-shadow: 0px 8px 10px 0px rgba(2, 217, 223, 0.4);
 }
@@ -1041,7 +1359,7 @@ p {
     text-align: center
 }
 
-.awesome-feat-carousel.owl-carousel .owl-nav > div {
+.awesome-feat-carousel.owl-carousel .owl-nav>div {
     position: absolute;
     left: 0;
     right: 0;
@@ -1057,14 +1375,14 @@ p {
     color: #f075c7
 }
 
-.awesome-feat-carousel.dark.owl-carousel .owl-nav > div {
+.awesome-feat-carousel.dark.owl-carousel .owl-nav>div {
     background-color: #232846
 }
 
-.awesome-feat-carousel.owl-carousel .owl-nav > div:hover {
+.awesome-feat-carousel.owl-carousel .owl-nav>div:hover {
     -webkit-box-shadow: 0px 12px 20px 0px rgba(240, 117, 199, 0.4);
     box-shadow: 0px 12px 20px 0px rgba(240, 117, 199, 0.4);
-    background: linear-gradient( 55deg, rgb(240, 117, 199) 0%, rgb(145, 145, 255) 100%);
+    background: linear-gradient(55deg, rgb(240, 117, 199) 0%, rgb(145, 145, 255) 100%);
     color: #fff
 }
 
@@ -1097,6 +1415,7 @@ p {
         opacity: 0;
         -webkit-transform: translateX(-20px);
     }
+
     100% {
         opacity: 1;
         -webkit-transform: translateX(0);
@@ -1109,6 +1428,7 @@ p {
         -webkit-transform: translateX(-20px);
         transform: translateX(-20px);
     }
+
     100% {
         opacity: 1;
         -webkit-transform: translateX(0);
@@ -1181,8 +1501,8 @@ p {
     width: 120px;
     height: 120px;
     line-height: 120px;
-    background-image: -webkit-gradient( linear, left top, right top, from(rgb(32, 0, 126)), to(rgb(230, 30, 182)));
-    background-image: linear-gradient( 90deg, rgb(32, 0, 126) 0%, rgb(230, 30, 182) 100%);
+    background-image: -webkit-gradient(linear, left top, right top, from(rgb(32, 0, 126)), to(rgb(230, 30, 182)));
+    background-image: linear-gradient(90deg, rgb(32, 0, 126) 0%, rgb(230, 30, 182) 100%);
     border-radius: 50%;
     text-align: center;
     color: #fff;
@@ -1190,20 +1510,20 @@ p {
 }
 
 .how-work-single.two i {
-    background-image: -webkit-gradient( linear, left top, right top, from(rgb(255, 170, 87)), to(rgb(254, 92, 118)));
-    background-image: linear-gradient( 90deg, rgb(255, 170, 87) 0%, rgb(254, 92, 118) 100%);
+    background-image: -webkit-gradient(linear, left top, right top, from(rgb(255, 170, 87)), to(rgb(254, 92, 118)));
+    background-image: linear-gradient(90deg, rgb(255, 170, 87) 0%, rgb(254, 92, 118) 100%);
 }
 
 .how-work-single.three i {
-    background-image: -webkit-gradient( linear, left top, right top, from(rgb(63, 47, 188)), to(rgb(2, 217, 223)));
-    background-image: linear-gradient( 90deg, rgb(63, 47, 188) 0%, rgb(2, 217, 223) 100%);
+    background-image: -webkit-gradient(linear, left top, right top, from(rgb(63, 47, 188)), to(rgb(2, 217, 223)));
+    background-image: linear-gradient(90deg, rgb(63, 47, 188) 0%, rgb(2, 217, 223) 100%);
 }
 
 .how-work-single .number {
     width: 48px;
     height: 48px;
-    background-image: -webkit-gradient( linear, left top, left bottom, from(rgb(61, 46, 135)), to(rgb(140, 45, 223)));
-    background-image: linear-gradient( 180deg, rgb(61, 46, 135) 0%, rgb(140, 45, 223) 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(61, 46, 135)), to(rgb(140, 45, 223)));
+    background-image: linear-gradient(180deg, rgb(61, 46, 135) 0%, rgb(140, 45, 223) 100%);
     border-radius: 50%;
     line-height: 40px;
     font-weight: 600;
@@ -1284,7 +1604,7 @@ p {
     top: 1px;
     border-radius: 30px;
     border: 0;
-    background-image: linear-gradient( 30deg, rgb(174, 14, 233) 0%, rgb(46, 25, 167) 100%);
+    background-image: linear-gradient(30deg, rgb(174, 14, 233) 0%, rgb(46, 25, 167) 100%);
     color: #fff;
     padding: 0 55px;
     font-weight: 600;
@@ -1293,7 +1613,7 @@ p {
 }
 
 .newsletter-form.two button {
-    background-image: linear-gradient( 30deg, rgb(157, 91, 254) 0%, rgb(56, 144, 254) 100%);
+    background-image: linear-gradient(30deg, rgb(157, 91, 254) 0%, rgb(56, 144, 254) 100%);
 }
 
 .newsletter-form button:hover {
@@ -1318,13 +1638,32 @@ p {
 
 #screenshot-area {
     padding: 115px 0 220px;
-    background-repeat: no-repeat;
-    background-position: right;
-    background-size: 42%
+    position: relative;
 }
 
 #screenshot-area.bg-1 {
-    background-image: url(../images/screen-bg-1.png)
+    background-image: none;
+}
+
+#screenshot-area.bg-1::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: url(../images/screen-bg-1.png) no-repeat right center;
+    background-size: 42% auto;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.85;
+    -webkit-animation: ani-rotate 50s linear infinite;
+    animation: ani-rotate 50s linear infinite;
+}
+
+#screenshot-area .container {
+    position: relative;
+    z-index: 1;
 }
 
 #screenshot-area.bg-2 {
@@ -1356,7 +1695,7 @@ p {
     text-align: right
 }
 
-.screen-carousel.owl-carousel .owl-nav > div {
+.screen-carousel.owl-carousel .owl-nav>div {
     position: absolute;
     left: 0;
     right: 0;
@@ -1438,8 +1777,8 @@ p {
     width: 160px;
     height: 50px;
     background: #ff4089;
-    background-image: -webkit-gradient( linear, left top, right top, from(rgb(174, 14, 233)), to(rgb(46, 25, 167)));
-    background-image: linear-gradient( 90deg, rgb(174, 14, 233) 0%, rgb(46, 25, 167) 100%);
+    background-image: -webkit-gradient(linear, left top, right top, from(rgb(174, 14, 233)), to(rgb(46, 25, 167)));
+    background-image: linear-gradient(90deg, rgb(174, 14, 233) 0%, rgb(46, 25, 167) 100%);
     -webkit-box-shadow: 0px 10px 30px 0px rgba(21, 10, 82, 0.35);
     box-shadow: 0px 10px 30px 0px rgba(21, 10, 82, 0.35);
     left: -1px;
@@ -1453,8 +1792,8 @@ p {
 }
 
 .toggle-container.two .switch-toggles:after {
-    background: -webkit-gradient( linear, left bottom, left top, from(rgb(157, 91, 254)), to(rgb(56, 144, 254)));
-    background: linear-gradient( 0deg, rgb(157, 91, 254) 0%, rgb(56, 144, 254) 100%);
+    background: -webkit-gradient(linear, left bottom, left top, from(rgb(157, 91, 254)), to(rgb(56, 144, 254)));
+    background: linear-gradient(0deg, rgb(157, 91, 254) 0%, rgb(56, 144, 254) 100%);
 }
 
 .toggle-container .switch-toggles.active:after {
@@ -1566,7 +1905,7 @@ p {
     text-transform: uppercase;
     -webkit-box-shadow: 0px 10px 30px 0px rgba(21, 10, 82, 0.35);
     box-shadow: 0px 10px 30px 0px rgba(21, 10, 82, 0.35);
-    background: linear-gradient( 45deg, rgb(174, 14, 233) 0%, rgb(46, 25, 167) 100%);
+    background: linear-gradient(45deg, rgb(174, 14, 233) 0%, rgb(46, 25, 167) 100%);
     background-size: 100% auto
 }
 
@@ -1575,7 +1914,7 @@ p {
 }
 
 .price-tbl-single.two a {
-    background: linear-gradient( 45deg, rgb(157, 91, 254) 0%, rgb(56, 144, 254) 100%);
+    background: linear-gradient(45deg, rgb(157, 91, 254) 0%, rgb(56, 144, 254) 100%);
 }
 
 .price-tbl-single ul {
@@ -1607,8 +1946,8 @@ p {
 }
 
 .price-tbl-single .price-bg {
-    background: -webkit-gradient( linear, left bottom, left top, from(rgb(32, 0, 126)), to(rgb(230, 30, 182)));
-    background: linear-gradient( 0deg, rgb(32, 0, 126) 0%, rgb(230, 30, 182) 100%);
+    background: -webkit-gradient(linear, left bottom, left top, from(rgb(32, 0, 126)), to(rgb(230, 30, 182)));
+    background: linear-gradient(0deg, rgb(32, 0, 126) 0%, rgb(230, 30, 182) 100%);
     width: 102px;
     height: 102px;
     border-radius: 50%;
@@ -1626,8 +1965,8 @@ p {
 }
 
 .price-tbl-single.two .price-bg {
-    background: -webkit-gradient( linear, left bottom, left top, from(rgb(157, 91, 254)), to(rgb(56, 144, 254)));
-    background: linear-gradient( 0deg, rgb(157, 91, 254) 0%, rgb(56, 144, 254) 100%);
+    background: -webkit-gradient(linear, left bottom, left top, from(rgb(157, 91, 254)), to(rgb(56, 144, 254)));
+    background: linear-gradient(0deg, rgb(157, 91, 254) 0%, rgb(56, 144, 254) 100%);
     -webkit-box-shadow: 0px 13px 20px 0px rgba(57, 143, 254, 0.3);
     box-shadow: 0px 13px 20px 0px rgba(57, 143, 254, 0.3);
 }
@@ -1654,6 +1993,48 @@ p {
 
 .custom-plan-wrap.bg-1 {
     background-image: url(../images/custom-plan-bg-1.png);
+    position: relative;
+}
+
+.custom-plan-wrap.bg-1 .custom-plan-wrap-circle .custom-plan-blob {
+    position: absolute;
+    -webkit-animation: zoominoutsinglefeatured 4s infinite;
+    animation: zoominoutsinglefeatured 4s infinite;
+}
+
+.custom-plan-wrap.bg-1 .custom-plan-wrap-circle .custom-plan-blob-1 {
+    left: 38%;
+    width: min(20vw, 220px);
+    height: min(20vw, 220px);
+    top: 30px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(174, 14, 233, 0.25), rgba(46, 25, 167, 0.08));
+}
+
+.custom-plan-wrap.bg-1 .custom-plan-wrap-circle .custom-plan-blob-2 {
+    right: 18%;
+    width: min(10vw, 120px);
+    height: min(10vw, 120px);
+    bottom: 120px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(230, 30, 182, 0.3), rgba(32, 0, 126, 0.1));
+    -webkit-animation-delay: 0.4s;
+    animation-delay: 0.4s;
+}
+
+.custom-plan-wrap-circle {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.custom-plan-wrap .row {
+    position: relative;
+    z-index: 1;
 }
 
 .custom-plan-wrap.bg-2 {
@@ -1672,8 +2053,8 @@ p {
 }
 
 .plan-btn.two a {
-    background-image: -webkit-gradient( linear, left top, right top, from(rgb(157, 91, 254)), to(rgb(56, 144, 254)));
-    background-image: linear-gradient( 90deg, rgb(157, 91, 254) 0%, rgb(56, 144, 254) 100%);
+    background-image: -webkit-gradient(linear, left top, right top, from(rgb(157, 91, 254)), to(rgb(56, 144, 254)));
+    background-image: linear-gradient(90deg, rgb(157, 91, 254) 0%, rgb(56, 144, 254) 100%);
     -webkit-box-shadow: 0px 13px 20px 0px rgba(0, 14, 254, 0.3);
     box-shadow: 0px 13px 20px 0px rgba(0, 14, 254, 0.3);
 }
@@ -1724,12 +2105,12 @@ p {
     padding: 25px;
     -webkit-clip-path: ellipse(50% 95% at 50% 97%);
     clip-path: ellipse(50% 95% at 50% 97%);
-    background-image: -webkit-gradient( linear, left top, right top, from(#20007e), to(#e61eb6));
-    background-image: linear-gradient( 90deg, #20007e 0%, #e61eb6 100%);
+    background-image: -webkit-gradient(linear, left top, right top, from(#20007e), to(#e61eb6));
+    background-image: linear-gradient(90deg, #20007e 0%, #e61eb6 100%);
 }
 
 .team-social.two {
-    background-image: linear-gradient( 30deg, rgb(157, 91, 254) 0%, rgb(56, 144, 254) 100%);
+    background-image: linear-gradient(30deg, rgb(157, 91, 254) 0%, rgb(56, 144, 254) 100%);
 }
 
 .team-social li {
@@ -1748,8 +2129,8 @@ p {
 }
 
 .team-social li a:hover {
-    background-image: -webkit-gradient( linear, left bottom, left top, from(rgb(255, 170, 87)), to(rgb(254, 92, 118)));
-    background-image: linear-gradient( 0deg, rgb(255, 170, 87) 0%, rgb(254, 92, 118) 100%);
+    background-image: -webkit-gradient(linear, left bottom, left top, from(rgb(255, 170, 87)), to(rgb(254, 92, 118)));
+    background-image: linear-gradient(0deg, rgb(255, 170, 87) 0%, rgb(254, 92, 118) 100%);
     -webkit-box-shadow: 0px 8px 10px 0px rgba(254, 92, 118, 0.6);
     box-shadow: 0px 8px 10px 0px rgba(154, 92, 118, 0.6);
     border-color: rgb(254, 92, 118)
@@ -1885,8 +2266,8 @@ p {
 .client-single.active .client-img:before {
     border-radius: 100%;
     content: '';
-    background-image: -webkit-gradient( linear, left top, left bottom, from(rgb(157, 91, 254)), to(rgb(56, 144, 254)));
-    background-image: linear-gradient( 180deg, rgb(157, 91, 254) 0%, rgb(56, 144, 254) 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(157, 91, 254)), to(rgb(56, 144, 254)));
+    background-image: linear-gradient(180deg, rgb(157, 91, 254) 0%, rgb(56, 144, 254) 100%);
     padding: 5px;
     width: 160px;
     height: 160px;
@@ -1954,10 +2335,23 @@ p {
     bottom: 0;
     background-size: contain;
     background-position: right;
+    z-index: -1;
+}
+
+.app-download-bg img {
+    float: right;
+    width: 70%;
+    height: auto;
+    -webkit-animation: ani-rotate 50s linear infinite;
+    animation: ani-rotate 50s linear infinite;
 }
 
 .app-download-bg.bg-1 {
     background-image: url(../images/app-downlod-bg-1.png)
+}
+
+.app-download-bg.bg-1:has(> img) {
+    background-image: none;
 }
 
 .app-download-bg.bg-2 {
@@ -1966,12 +2360,12 @@ p {
 
 .app-downlod-review {
     padding: 120px 0 100px;
-    background-image: -webkit-gradient( linear, left bottom, left top, from(rgb(32, 0, 126)), to(rgb(230, 30, 182)));
-    background-image: linear-gradient( 0deg, rgb(32, 0, 126) 0%, rgb(230, 30, 182) 100%);
+    background-image: -webkit-gradient(linear, left bottom, left top, from(rgb(32, 0, 126)), to(rgb(230, 30, 182)));
+    background-image: linear-gradient(0deg, rgb(32, 0, 126) 0%, rgb(230, 30, 182) 100%);
 }
 
 .app-downlod-review.two {
-    background-image: linear-gradient( 45deg, rgb(56, 144, 254) 0%, rgb(157, 91, 254) 100%);
+    background-image: linear-gradient(45deg, rgb(56, 144, 254) 0%, rgb(157, 91, 254) 100%);
     -webkit-box-shadow: 0px 13px 20px 0px rgba(57, 143, 254, 0.3);
     box-shadow: 0px 13px 20px 0px rgba(57, 143, 254, 0.3);
 }
@@ -1987,8 +2381,8 @@ p {
 }
 
 .download-btns a.bg {
-    background-image: -webkit-gradient( linear, left top, right top, from(rgb(174, 14, 233)), to(rgb(46, 25, 167)));
-    background-image: linear-gradient( 90deg, rgb(174, 14, 233) 0%, rgb(46, 25, 167) 100%);
+    background-image: -webkit-gradient(linear, left top, right top, from(rgb(174, 14, 233)), to(rgb(46, 25, 167)));
+    background-image: linear-gradient(90deg, rgb(174, 14, 233) 0%, rgb(46, 25, 167) 100%);
     -webkit-box-shadow: 0px 10px 30px 0px rgba(21, 10, 82, 0.35);
     box-shadow: 0px 10px 30px 0px rgba(21, 10, 82, 0.35);
     border: 0;
@@ -1997,12 +2391,12 @@ p {
 
 .download-btns.two a.bg,
 .download-btns.two a:hover {
-    background-image: linear-gradient( 45deg, rgb(157, 91, 254) 0%, rgb(56, 144, 254) 100%)
+    background-image: linear-gradient(45deg, rgb(157, 91, 254) 0%, rgb(56, 144, 254) 100%)
 }
 
 .download-btns a:hover {
-    background-image: -webkit-gradient( linear, left top, right top, from(rgb(174, 14, 233)), to(rgb(46, 25, 167)));
-    background-image: linear-gradient( 90deg, rgb(174, 14, 233) 0%, rgb(46, 25, 167) 100%);
+    background-image: -webkit-gradient(linear, left top, right top, from(rgb(174, 14, 233)), to(rgb(46, 25, 167)));
+    background-image: linear-gradient(90deg, rgb(174, 14, 233) 0%, rgb(46, 25, 167) 100%);
     -webkit-box-shadow: 0px 10px 30px 0px rgba(21, 10, 82, 0.35);
     box-shadow: 0px 10px 30px 0px rgba(21, 10, 82, 0.35);
 }
@@ -2020,7 +2414,7 @@ p {
     margin-bottom: 40px;
 }
 
-.app-reviews > h6 {
+.app-reviews>h6 {
     font-weight: 600;
     color: #fff;
 }
@@ -2053,6 +2447,7 @@ p {
     right: 0;
     bottom: 130px;
     width: 50%;
+    z-index: 1;
 }
 
 /*-------------------------------------------------------------------------------------
@@ -2064,6 +2459,7 @@ p {
     background-repeat: no-repeat;
     background-position: left;
     background-size: 25% 95%;
+    position: relative;
 }
 
 #faq-area.bg-1 {
@@ -2103,13 +2499,13 @@ p {
 
 .card .card-header.active,
 .card .card-header:hover {
-    background-image: -webkit-gradient( linear, left top, right top, from(rgb(32, 0, 126)), to(rgb(230, 30, 182)));
-    background-image: linear-gradient( 90deg, rgb(32, 0, 126) 0%, rgb(230, 30, 182) 100%);
+    background-image: -webkit-gradient(linear, left top, right top, from(rgb(32, 0, 126)), to(rgb(230, 30, 182)));
+    background-image: linear-gradient(90deg, rgb(32, 0, 126) 0%, rgb(230, 30, 182) 100%);
 }
 
 .card.two .card-header.active,
 .card.two .card-header:hover {
-    background-image: linear-gradient( 45deg, rgb(157, 91, 254) 0%, rgb(56, 144, 254) 100%);
+    background-image: linear-gradient(45deg, rgb(157, 91, 254) 0%, rgb(56, 144, 254) 100%);
 }
 
 .card .card-header.active a,
@@ -2142,20 +2538,22 @@ p {
 }
 
 .card-body {
-    background-image: -webkit-gradient( linear, left top, right top, from(rgb(32, 0, 126)), to(rgb(230, 30, 182)));
-    background-image: linear-gradient( 90deg, rgb(32, 0, 126) 0%, rgb(230, 30, 182) 100%);
+    background-image: -webkit-gradient(linear, left top, right top, from(rgb(32, 0, 126)), to(rgb(230, 30, 182)));
+    background-image: linear-gradient(90deg, rgb(32, 0, 126) 0%, rgb(230, 30, 182) 100%);
     border-radius: 0 0 10px 10px;
     padding: 0 30px 10px 30px
 }
 
 .card.two .card-body {
-    background-image: linear-gradient( 45deg, rgb(157, 91, 254) 0%, rgb(56, 144, 254) 100%);
+    background-image: linear-gradient(45deg, rgb(157, 91, 254) 0%, rgb(56, 144, 254) 100%);
 
 }
 
 .faq-img img {
     max-width: 350px;
     margin-left: 130px;
+    -webkit-animation: upndown 7s linear infinite;
+    animation: upndown 7s linear infinite;
 }
 
 /*-------------------------------------------------------------------------------------
@@ -2172,6 +2570,38 @@ p {
 
 #contact-area.bg-1 {
     background-image: url(../images/contact-bg-1.png);
+    position: relative;
+}
+
+#contact-area.bg-1 .contact-area-circle .contact-blob {
+    position: absolute;
+    opacity: 0.5;
+    -webkit-animation: zoominoutsinglefeatured 4s infinite;
+    animation: zoominoutsinglefeatured 4s infinite;
+}
+
+#contact-area.bg-1 .contact-area-circle .contact-blob-1 {
+    right: 2%;
+    width: min(7vw, 90px);
+    height: min(7vw, 90px);
+    top: 40px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(174, 14, 233, 0.45), rgba(46, 25, 167, 0.15));
+}
+
+.contact-area-circle {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+#contact-area .container {
+    position: relative;
+    z-index: 1;
 }
 
 #contact-area.bg-2 {
@@ -2218,7 +2648,7 @@ p {
     font-size: 14px;
     font-weight: 700;
     border-radius: 5px;
-    background-image: linear-gradient( 45deg, rgb(174, 14, 233) 0%, rgb(46, 25, 167) 100%);
+    background-image: linear-gradient(45deg, rgb(174, 14, 233) 0%, rgb(46, 25, 167) 100%);
     -webkit-box-shadow: 0px 10px 30px 0px rgba(21, 10, 82, 0.35);
     box-shadow: 0px 10px 30px 0px rgba(21, 10, 82, 0.35);
     border: 0;
@@ -2228,7 +2658,7 @@ p {
 }
 
 .contact-form.two button {
-    background-image: linear-gradient( 45deg, rgb(157, 91, 254) 0%, rgb(56, 144, 254) 100%);
+    background-image: linear-gradient(45deg, rgb(157, 91, 254) 0%, rgb(56, 144, 254) 100%);
     -webkit-box-shadow: 0px 10px 30px 0px rgba(21, 10, 82, 0.35);
 }
 
@@ -2275,8 +2705,8 @@ p {
 
 .get-started {
     border-radius: 5px;
-    background-image: -webkit-gradient( linear, left top, right top, from(rgb(32, 0, 126)), to(rgb(230, 30, 182)));
-    background-image: linear-gradient( 90deg, rgb(32, 0, 126) 0%, rgb(230, 30, 182) 100%);
+    background-image: -webkit-gradient(linear, left top, right top, from(rgb(32, 0, 126)), to(rgb(230, 30, 182)));
+    background-image: linear-gradient(90deg, rgb(32, 0, 126) 0%, rgb(230, 30, 182) 100%);
     -webkit-box-shadow: 0px 10px 10px 0px rgba(2, 2, 2, 0.25);
     box-shadow: 0px 10px 10px 0px rgba(2, 2, 2, 0.25);
     padding: 50px 30px;
@@ -2284,8 +2714,8 @@ p {
 }
 
 .get-started.two {
-    background-image: -webkit-gradient( linear, left top, right top, from(rgb(56, 144, 254)), to(rgb(157, 91, 254)));
-    background-image: linear-gradient( 90deg, rgb(56, 144, 254) 0%, rgb(157, 91, 254) 100%);
+    background-image: -webkit-gradient(linear, left top, right top, from(rgb(56, 144, 254)), to(rgb(157, 91, 254)));
+    background-image: linear-gradient(90deg, rgb(56, 144, 254) 0%, rgb(157, 91, 254) 100%);
 
 }
 
@@ -2300,8 +2730,8 @@ p {
 .get-started a {
     display: inline-block;
     float: right;
-    background-image: -webkit-gradient( linear, left top, right top, from(rgb(174, 14, 233)), to(rgb(46, 25, 167)));
-    background-image: linear-gradient( 90deg, rgb(174, 14, 233) 0%, rgb(46, 25, 167) 100%);
+    background-image: -webkit-gradient(linear, left top, right top, from(rgb(174, 14, 233)), to(rgb(46, 25, 167)));
+    background-image: linear-gradient(90deg, rgb(174, 14, 233) 0%, rgb(46, 25, 167) 100%);
     -webkit-box-shadow: 0px 10px 30px 0px rgba(21, 10, 82, 0.35);
     box-shadow: 0px 10px 30px 0px rgba(21, 10, 82, 0.35);
     color: #fff;
@@ -2388,8 +2818,8 @@ p {
 }
 
 .footer-social li a:hover {
-    background-image: -webkit-gradient( linear, left top, right top, from(rgb(255, 170, 87)), to(rgb(254, 92, 118)));
-    background-image: linear-gradient( 90deg, rgb(255, 170, 87) 0%, rgb(254, 92, 118) 100%);
+    background-image: -webkit-gradient(linear, left top, right top, from(rgb(255, 170, 87)), to(rgb(254, 92, 118)));
+    background-image: linear-gradient(90deg, rgb(255, 170, 87) 0%, rgb(254, 92, 118) 100%);
     -webkit-box-shadow: 0px 8px 10px 0px rgba(254, 92, 118, 0.6);
     box-shadow: 0px 8px 10px 0px rgba(254, 92, 118, 0.6);
     border-color: rgb(254, 92, 118)
@@ -2473,8 +2903,8 @@ p {
     text-align: center;
     line-height: 26px;
     padding: 12px 0 0;
-    background-image: -webkit-gradient( linear, left top, right top, from(rgb(174, 14, 233)), to(rgb(46, 25, 167)));
-    background-image: linear-gradient( 90deg, rgb(174, 14, 233) 0%, rgb(46, 25, 167) 100%);
+    background-image: -webkit-gradient(linear, left top, right top, from(rgb(174, 14, 233)), to(rgb(46, 25, 167)));
+    background-image: linear-gradient(90deg, rgb(174, 14, 233) 0%, rgb(46, 25, 167) 100%);
 }
 
 .post-media .date span {
@@ -2577,7 +3007,7 @@ p {
 }
 
 .sidebar-widget button {
-    background-image: linear-gradient( 45deg, rgb(174, 14, 233) 0%, rgb(46, 25, 167) 100%);
+    background-image: linear-gradient(45deg, rgb(174, 14, 233) 0%, rgb(46, 25, 167) 100%);
     -webkit-box-shadow: 0px 10px 30px 0px rgba(21, 10, 82, 0.35);
     box-shadow: 0px 10px 30px 0px rgba(21, 10, 82, 0.35);
     border: 0;
@@ -2613,7 +3043,7 @@ p {
 }
 
 .sidebar-widget.tags li a:hover {
-    background-image: linear-gradient( 45deg, rgb(174, 14, 233) 0%, rgb(46, 25, 167) 100%);
+    background-image: linear-gradient(45deg, rgb(174, 14, 233) 0%, rgb(46, 25, 167) 100%);
     -webkit-box-shadow: 0px 10px 30px 0px rgba(21, 10, 82, 0.35);
     box-shadow: 0px 10px 30px 0px rgba(21, 10, 82, 0.35);
     color: #fff
@@ -2656,8 +3086,8 @@ p {
 
 .blog-pagination li a.active,
 .blog-pagination li a:hover {
-    background-image: -webkit-gradient( linear, left top, right top, from(rgb(174, 14, 233)), to(rgb(46, 25, 167)));
-    background-image: linear-gradient( 90deg, rgb(174, 14, 233) 0%, rgb(46, 25, 167) 100%);
+    background-image: -webkit-gradient(linear, left top, right top, from(rgb(174, 14, 233)), to(rgb(46, 25, 167)));
+    background-image: linear-gradient(90deg, rgb(174, 14, 233) 0%, rgb(46, 25, 167) 100%);
     -webkit-box-shadow: 0px 10px 30px 0px rgba(21, 10, 82, 0.35);
     box-shadow: 0px 10px 30px 0px rgba(21, 10, 82, 0.35);
     color: #fff
@@ -2675,8 +3105,8 @@ p {
 ---------------------------------------------------------------------------------------*/
 
 .post-cont blockquote {
-    background-image: -webkit-gradient( linear, left top, right top, from(rgb(32, 0, 126)), to(rgb(230, 30, 182)));
-    background-image: linear-gradient( 90deg, rgb(32, 0, 126) 0%, rgb(230, 30, 182) 100%);
+    background-image: -webkit-gradient(linear, left top, right top, from(rgb(32, 0, 126)), to(rgb(230, 30, 182)));
+    background-image: linear-gradient(90deg, rgb(32, 0, 126) 0%, rgb(230, 30, 182) 100%);
     padding: 65px 70px 50px;
     margin: 70px 0 50px;
     position: relative
@@ -2833,8 +3263,8 @@ p {
     font-weight: 700;
     padding: 18px 46px;
     border-radius: 4px;
-    background-image: -webkit-gradient( linear, left top, right top, from(rgb(174, 14, 233)), to(rgb(46, 25, 167)));
-    background-image: linear-gradient( 90deg, rgb(174, 14, 233) 0%, rgb(46, 25, 167) 100%);
+    background-image: -webkit-gradient(linear, left top, right top, from(rgb(174, 14, 233)), to(rgb(46, 25, 167)));
+    background-image: linear-gradient(90deg, rgb(174, 14, 233) 0%, rgb(46, 25, 167) 100%);
     color: #fff;
     font-family: 'Open Sans', sans-serif;
     margin: 25px 0 0;
