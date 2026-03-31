@@ -388,7 +388,7 @@ p {
 ---------------------------------------------------------------------------------------*/
 
 #home-area.bg-1 {
-    background-image: url(../images/home-bg-1.png);
+    background-image: url(../../new-assets/images/home-bg-1.png);
     background-repeat: no-repeat;
     background-position: bottom;
     margin-bottom: 60px;
@@ -406,33 +406,27 @@ p {
     z-index: 0;
 }
 
-#home-area.bg-1 .home-bg-circle .home-blob {
+#home-area.bg-1 .home-bg-circle .circle1 {
     position: absolute;
-    display: block;
-}
-
-#home-area.bg-1 .home-bg-circle .home-blob-1 {
-    right: 30%;
-    top: 90px;
-    width: min(14vw, 180px);
-    height: min(14vw, 180px);
-    border-radius: 50%;
-    background: radial-gradient(circle at 35% 35%, rgba(174, 14, 233, 0.5), rgba(46, 25, 167, 0.2));
-    opacity: 0.55;
     -webkit-animation: zoominoutsinglefeatured 4s infinite;
     animation: zoominoutsinglefeatured 4s infinite;
+    opacity: 0.6;
+    right: 35%;
+    top: 100px;
+    width: 12%;
+    height: auto;
 }
 
-#home-area.bg-1 .home-bg-circle .home-blob-2 {
-    right: 38%;
-    top: 280px;
-    width: min(16vw, 200px);
-    height: min(16vw, 200px);
+#home-area.bg-1 .home-bg-circle .circle2 {
+    position: absolute;
     border-radius: 62% 47% 82% 35% / 45% 45% 80% 66%;
-    background: linear-gradient(145deg, rgba(230, 30, 182, 0.4), rgba(32, 0, 126, 0.35));
-    opacity: 0.45;
     -webkit-animation: sliderShape 5s linear infinite;
     animation: sliderShape 5s linear infinite;
+    opacity: 0.5;
+    right: 43%;
+    top: 330px;
+    width: 15%;
+    height: auto;
 }
 
 #home-area .container {
@@ -447,7 +441,7 @@ p {
 }
 
 .caption {
-    padding: 230px 0 275px;
+    padding: 230px 0 380px;
 }
 
 .caption.two {
@@ -465,7 +459,6 @@ p {
 .caption-btns a {
     display: inline-block;
     position: relative;
-    margin: 0 8px;
     font-weight: 600;
     color: #fff;
 }
@@ -1258,11 +1251,50 @@ p {
 }
 
 #awesome-feat-area.bg-1 {
-    background-image: url(../images/awesome-feat-bg-1.png)
+    background-image: url("../../new-assets/images/awesome-feat-bg-1.png");
+    position: relative;
+}
+
+#awesome-feat-area.bg-1 .awesome-feat-area-circle img {
+    position: absolute;
+    -webkit-animation: zoominoutsinglefeatured 4s infinite;
+    animation: zoominoutsinglefeatured 4s infinite;
+}
+
+#awesome-feat-area.bg-1 .awesome-feat-area-circle .circle1 {
+    left: 2%;
+    width: 10%;
+    opacity: 0.5;
+}
+
+#awesome-feat-area.bg-1 .awesome-feat-area-circle .circle2 {
+    left: 10%;
+    width: 10%;
+    opacity: 0.7;
+    margin-top: 200px;
 }
 
 #awesome-feat-area.bg-2 {
-    background-image: url(../images/awesome-feat-bg-2.png)
+    background-image: url("../../new-assets/images/awesome-feat-bg-2.png");
+}
+
+#awesome-feat-area.bg-2 .awesome-feat-area-circle img {
+    position: absolute;
+    -webkit-animation: zoominoutsinglefeatured 4s infinite;
+    animation: zoominoutsinglefeatured 4s infinite;
+}
+
+#awesome-feat-area.bg-2 .awesome-feat-area-circle .circle1 {
+    left: 2%;
+    width: 10%;
+    opacity: 0.5;
+}
+
+#awesome-feat-area.bg-2 .awesome-feat-area-circle .circle2 {
+    left: 10%;
+    width: 10%;
+    opacity: 0.7;
+    margin-top: 200px;
 }
 
 .awesome-feat-img {
@@ -2463,12 +2495,14 @@ p {
     position: relative;
 }
 
-#faq-area.bg-1 {
-    background-image: url(../images/faq-bg-1.png)
-}
-
-#faq-area.bg-2 {
-    background-image: url(../images/faq-bg-2.png)
+#faq-area.bg-1 .faq-area-img {
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: 25% 95%;
+    left: -330px;
+    -webkit-animation: ani-rotate 50s linear infinite;
+    animation: ani-rotate 50s linear infinite;
 }
 
 #faq-area .section-heading p {
