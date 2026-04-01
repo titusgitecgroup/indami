@@ -47,7 +47,7 @@
         <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <!-- Logo -->
-                <a class="logo" href="#">
+                <a class="logo" href="index.html">
                     <svg width="153" height="58" viewBox="0 0 153 58" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect y="28.8958" width="40.8648" height="40.8648" transform="rotate(-45 0 28.8958)" fill="url(#paint0_linear_16341_11)" />
                         <path
@@ -89,7 +89,7 @@
                             <a class="nav-link" href="#" data-scroll-nav="5">FAQ's</a>
                         </li>
                         <li class="nav-item download-btn">
-                            <a class="nav-link" href="#" data-scroll-nav="5">Sign Up for Free Trial</a>
+                            <a class="nav-link" href="questionnaire.html">Sign Up for Free Trial</a>
                         </li>
                     </ul>
                 </div>
@@ -113,7 +113,7 @@
                             <h4 class="text-white font-open-sans">Seamlessly migrate, transform, and manage your HCM data — before, during, and after go-live.</h4>
                             <p class="text-light">INDAMI eliminates manual data preparation, reduces errors, and enables continuous data management across your entire HCM lifecycle.</p>
                             <div class="caption-btns">
-                                <a class="bg" href="">Sign up for Free Trial</a>
+                                <a class="bg" href="questionnaire.html">Sign up for Free Trial</a>
                             </div>
                         </div>
                     </div>
@@ -401,7 +401,7 @@
                 <div class="col-lg-8">
                     <div class="load-more-btn text-center d-flex align-items-center justify-content-center pt-3">
                         <span class="mr-3">Sign up to be one of the first to try INDAMI</span>
-                        <a href="#" class="mt-0"> Sign Up
+                        <a href="questionnaire.html" class="mt-0"> Sign Up
                             <i class="icofont-arrow-right ml-2"></i></a>
                     </div>
                 </div>
@@ -570,7 +570,7 @@
                                 <li>HDL generation</li>
                                 <li>Basic validation</li>
                             </ul>
-                            <a href="#">Sign up for free trial</a>
+                            <a href="questionnaire.html">Sign up for free trial</a>
                         </div>
                     </div>
                 </div>
@@ -588,7 +588,7 @@
                                 <li>Advanced validation</li>
                                 <li>Collaboration features</li>
                             </ul>
-                            <a href="#" class="special">Sign up for free trial</a>
+                            <a href="questionnaire.html" class="special">Sign up for free trial</a>
                         </div>
                     </div>
                 </div>
@@ -607,7 +607,7 @@
                                 <li>Automation workflows</li>
                                 <li>Dedicated support</li>
                             </ul>
-                            <a href="#">Contact us / Sign up for free trial</a>
+                            <a href="questionnaire.html">Contact us / Sign up for free trial</a>
                         </div>
                     </div>
                 </div>
@@ -739,48 +739,112 @@
     </section>
     <!--end faq area-->
     <!--start contact area-->
-    <section id="contact-area" class="bg-1">
-        <div class="contact-area-circle" aria-hidden="true">
-            <span class="contact-blob contact-blob-1"></span>
-        </div>
-        <div class="container">
-            <div class="row">
+    <!-- <section id="contact-area" class="bg-1"> -->
+        <!-- <div class="container"> -->
+            <!-- <div class="row"> -->
                 <!--start section heading-->
-                <div class="col-lg-5 col-md-8">
+                <!-- <div class="col-lg-5 col-md-8">
                     <div class="section-heading">
                         <h5>Contact us</h5>
                         <h2>Get In Touch</h2>
                         <p>If you have any questions, just fill in the contact form, and we will answer you shortly.</p>
                     </div>
-                </div>
+                </div> -->
                 <!--end section heading-->
-            </div>
-            <div class="row">
+            <!-- </div> -->
+            <!-- <div class="row"> -->
                 <!--start contact form-->
-                <div class="col-lg-5 col-md-7">
+                <!-- <div class="col-lg-8 col-md-10">
                     <div class="contact-form">
-                        <form id="ajax-contact" action="contact.php" method="post">
+                        <form id="ajax-contact" action="#" method="post">
+                            <div class="contact-honeypot-wrap" aria-hidden="true">
+                                <label for="company">Company</label>
+                                <input type="text" name="company" id="company" tabindex="-1" autocomplete="off" value="">
+                            </div>
+
                             <div class="form-group">
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Name*" required="required" data-error="name is required.">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Name*" required="required" data-error="Name is required.">
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Email*" required="required" data-error="valid email is required.">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Email*" required="required" data-error="A valid email is required.">
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control" id="message" name="message" rows="10" placeholder="Message*" required="required" data-error="Please, leave us a message."></textarea>
+                                <textarea class="form-control" id="message" name="message" rows="6" placeholder="Message*" required="required" data-error="Please leave us a message."></textarea>
                                 <div class="help-block with-errors"></div>
                             </div>
+
+                            <div class="contact-questionnaire">
+                                <p class="contact-q-title">1. Which best describes you?</p>
+                                <div class="form-group contact-q-options">
+                                    <label class="contact-radio"><input type="radio" name="q1_best_describes" value="Independent Oracle HCM Consultant" required> Independent Oracle HCM Consultant</label>
+                                    <label class="contact-radio"><input type="radio" name="q1_best_describes" value="Oracle HCM Consulting Firm"> Oracle HCM Consulting Firm</label>
+                                    <label class="contact-radio"><input type="radio" name="q1_best_describes" value="Oracle HCM Customer (In-house team)"> Oracle HCM Customer (In-house team)</label>
+                                    <label class="contact-radio"><input type="radio" name="q1_best_describes" value="Other (please specify)" id="q1-other-radio"> Other (please specify)</label>
+                                </div>
+                                <div class="form-group" id="q1-other-wrap" style="display:none;">
+                                    <input type="text" class="form-control" name="q1_other_specify" id="q1_other_specify" placeholder="Please specify" data-error="Please specify if you chose Other.">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+
+                                <p class="contact-q-title">2. What would you primarily use INDAMI for? (Select all that apply)</p>
+                                <div class="form-group contact-q-options">
+                                    <label class="contact-check"><input type="checkbox" name="q2_primary_use[]" value="Data migration (HDL creation, transformation)"> Data migration (HDL creation, transformation)</label>
+                                    <label class="contact-check"><input type="checkbox" name="q2_primary_use[]" value="Data cleansing and validation"> Data cleansing and validation</label>
+                                    <label class="contact-check"><input type="checkbox" name="q2_primary_use[]" value="Accelerating implementations"> Accelerating implementations</label>
+                                    <label class="contact-check"><input type="checkbox" name="q2_primary_use[]" value="Fixing failed/complex data loads"> Fixing failed/complex data loads</label>
+                                    <label class="contact-check"><input type="checkbox" name="q2_primary_use[]" value="Ongoing data management post-go-live"> Ongoing data management post-go-live</label>
+                                </div>
+
+                                <p class="contact-q-title">3. How would you describe your current data migration challenges?</p>
+                                <div class="form-group contact-q-options">
+                                    <label class="contact-radio"><input type="radio" name="q3_challenges" value="No major issues" required> No major issues</label>
+                                    <label class="contact-radio"><input type="radio" name="q3_challenges" value="Occasional challenges"> Occasional challenges</label>
+                                    <label class="contact-radio"><input type="radio" name="q3_challenges" value="Frequent delays or errors"> Frequent delays or errors</label>
+                                    <label class="contact-radio"><input type="radio" name="q3_challenges" value="Critical bottleneck impacting projects"> Critical bottleneck impacting projects</label>
+                                </div>
+
+                                <p class="contact-q-title">4. If INDAMI significantly improved your data migration process, what monthly price range would you consider reasonable?</p>
+                                <div class="form-group contact-q-options">
+                                    <label class="contact-radio"><input type="radio" name="q4_price_range" value="Less than $50/month" required> Less than $50/month</label>
+                                    <label class="contact-radio"><input type="radio" name="q4_price_range" value="$50 – $150/month"> $50 – $150/month</label>
+                                    <label class="contact-radio"><input type="radio" name="q4_price_range" value="$150 – $500/month"> $150 – $500/month</label>
+                                    <label class="contact-radio"><input type="radio" name="q4_price_range" value="$500 – $1,000/month"> $500 – $1,000/month</label>
+                                    <label class="contact-radio"><input type="radio" name="q4_price_range" value="$1,000+/month"> $1,000+/month</label>
+                                </div>
+
+                                <p class="contact-q-title">5. What outcome would make INDAMI a &ldquo;must-have&rdquo; for you?</p>
+                                <div class="form-group contact-q-options">
+                                    <label class="contact-radio"><input type="radio" name="q5_must_have" value="Saves a few hours per project" required> Saves a few hours per project</label>
+                                    <label class="contact-radio"><input type="radio" name="q5_must_have" value="Reduces errors and rework"> Reduces errors and rework</label>
+                                    <label class="contact-radio"><input type="radio" name="q5_must_have" value="Speeds up implementations significantly"> Speeds up implementations significantly</label>
+                                    <label class="contact-radio"><input type="radio" name="q5_must_have" value="Eliminates major data migration risks"> Eliminates major data migration risks</label>
+                                    <label class="contact-radio"><input type="radio" name="q5_must_have" value="Becomes essential to every project"> Becomes essential to every project</label>
+                                </div>
+
+                                <p class="contact-q-title">6. Are you involved in purchasing tools like this?</p>
+                                <div class="form-group contact-q-options">
+                                    <label class="contact-radio"><input type="radio" name="q6_purchasing" value="Yes, I make purchasing decisions" required> Yes, I make purchasing decisions</label>
+                                    <label class="contact-radio"><input type="radio" name="q6_purchasing" value="I influence decisions"> I influence decisions</label>
+                                    <label class="contact-radio"><input type="radio" name="q6_purchasing" value="No, but I would recommend it"> No, but I would recommend it</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group contact-turnstile">
+                                <div id="cf-turnstile-contact" class="cf-turnstile"></div>
+                                <div class="help-block with-errors turnstile-error"></div>
+                            </div>
+
                             <button type="submit">SUBMIT NOW</button>
                             <div class="messages"></div>
                         </form>
                     </div>
-                </div>
+                </div> -->
                 <!--end contact form-->
-            </div>
-        </div>
-    </section>
+            <!-- </div> -->
+        <!-- </div> -->
+    <!-- </section> -->
     <!--end contact area-->
     <!--start footer-->
     <footer id="footer" class="bg-1">
@@ -791,7 +855,7 @@
                         <h2 class="mb-0">Stop Letting Data Slow Down Your HCM Strategy</h2>
                     </div>
                     <div class="col-lg-6 col-md-4">
-                        <a href="#" class="font-weight-bold">Get Started with INDAMI</a>
+                        <a href="questionnaire.html" class="font-weight-bold">Get Started with INDAMI</a>
                     </div>
                 </div>
             </div>
@@ -824,8 +888,6 @@
     <script src="assets/js/scrollIt.min.js"></script>
     <!--validator js-->
     <script src="assets/js/validator.min.js"></script>
-    <!--contact js-->
-    <script src="assets/js/contact.js"></script>
     <!--ajax newsletter js-->
     <script src="newsletter/ajax-newsletter-form.js"></script>
     <!--main js-->
