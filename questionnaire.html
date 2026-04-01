@@ -2,6 +2,15 @@
 <html lang="zxx">
 
 <head>
+    <script>
+        /* Dev-only: hostname is never 127.0.0.1 on real prod/staging domains, so this is a no-op there.
+           localhost vs 127.0.0.1 are different origins; Turnstile/API checks often allow only one. */
+        (function () {
+            if (location.hostname === "127.0.0.1") {
+                location.replace(location.href.replace("//127.0.0.1", "//localhost"));
+            }
+        })();
+    </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="keywords" content="">
