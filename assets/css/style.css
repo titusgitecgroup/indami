@@ -2673,16 +2673,31 @@ p {
     margin-right: auto;
 }
 
-#free-trial-area .contact-form.trial-signup-form {
+#contact-area .trial-form-card {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid rgba(46, 25, 167, 0.12);
+    box-shadow: 0 16px 48px rgba(46, 25, 167, 0.09), 0 4px 16px rgba(0, 0, 0, 0.04);
+    padding: 40px 36px 44px;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#free-trial-area .contact-form.trial-signup-form,
+#contact-area .contact-form.trial-signup-form {
     margin-bottom: 0;
 }
 
-#free-trial-area .trial-form-fields {
+#free-trial-area .trial-form-fields,
+#contact-area .trial-form-fields {
     margin-bottom: 4px;
 }
 
 #free-trial-area .trial-form-fields-title,
-#free-trial-area .trial-form-survey-title {
+#free-trial-area .trial-form-survey-title,
+#contact-area .trial-form-fields-title,
+#contact-area .trial-form-survey-title {
     font-family: 'Open Sans', sans-serif;
     font-size: 12px;
     font-weight: 700;
@@ -2697,7 +2712,8 @@ p {
     margin-bottom: 20px;
 }
 
-#free-trial-area .trial-form-divider {
+#free-trial-area .trial-form-divider,
+#contact-area .trial-form-divider {
     height: 1px;
     margin: 28px 0 26px;
     background: linear-gradient(90deg, rgba(46, 25, 167, 0.2), rgba(174, 14, 233, 0.15), rgba(46, 25, 167, 0.08));
@@ -2829,12 +2845,14 @@ p {
     margin-bottom: 0;
 }
 
-#free-trial-area .trial-signup-form .contact-turnstile {
+#free-trial-area .trial-signup-form .contact-turnstile,
+#contact-area .trial-signup-form .contact-turnstile {
     margin-top: 24px;
     padding-top: 8px;
 }
 
-#free-trial-area .trial-signup-form button[type="submit"] {
+#free-trial-area .trial-signup-form button[type="submit"],
+#contact-area .trial-signup-form button[type="submit"] {
     margin-top: 28px;
     display: block;
     width: 100%;
