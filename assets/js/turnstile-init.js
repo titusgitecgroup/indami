@@ -1,7 +1,10 @@
 (function () {
     'use strict';
 
-    var SITEKEY = '1x00000000000000000000AA';
+    var SITEKEY =
+        (typeof window !== "undefined" &&
+            window.__CONFIG__ &&
+            window.__CONFIG__.turnstileSiteKey);
 
     function renderWidgets() {
         if (typeof turnstile === 'undefined') {

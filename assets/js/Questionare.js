@@ -42,12 +42,53 @@
     }
 
     /**
-     * Parses JSON error responses; optional `errors` map (ASP.NET-style) when parseErrorsObject is true.
+     * Backend shape: { "errorMessages": [ { "name": "...", "message": "..." } ] }
+     * Show only the .message strings (joined if multiple).
+     */
+    function messagesFromErrorMessagesArray(j) {
+        if (!j || typeof j !== "object") {
+            return null;
+        }
+        var arr = j.errorMessages;
+        if (!Array.isArray(arr) || arr.length === 0) {
+            return null;
+        }
+        var parts = [];
+        var i;
+        for (i = 0; i < arr.length; i++) {
+            var item = arr[i];
+            if (item && typeof item.message === "string" && item.message.trim()) {
+                parts.push(item.message.trim());
+            }
+        }
+        return parts.length ? parts.join(" ") : null;
+    }
+
+    /**
+     * Parses error responses: prefers errorMessages[], then other JSON fields, then plain text.
      */
     function messageFromErrorPayload(xhr, parseErrorsObject) {
-        var text = xhr.responseText || "";
-        try {
-            var j = JSON.parse(text);
+        var status = xhr.status || 0;
+        var j = null;
+
+        if (xhr.responseJSON && typeof xhr.responseJSON === "object") {
+            j = xhr.responseJSON;
+        } else {
+            var text = (xhr.responseText || "").trim();
+            if (text) {
+                try {
+                    j = JSON.parse(text);
+                } catch (ignore) {
+                    return text.length > 4000 ? text.slice(0, 4000) + "..." : text;
+                }
+            }
+        }
+
+        if (j && typeof j === "object") {
+            var fromErrList = messagesFromErrorMessagesArray(j);
+            if (fromErrList) {
+                return fromErrList;
+            }
             var err = pickFirst(j, ["message", "Message", "title", "Title", "detail", "Detail"]);
             if (typeof err === "string" && err.length) {
                 return err;
@@ -61,12 +102,20 @@
                     }
                 }
             }
-        } catch (ignore) {
         }
-        if (xhr.status) {
-            return "Request failed (" + xhr.status + "). Please try again later.";
+
+        if (status) {
+            return "Request failed (" + status + "). Please try again later.";
         }
         return "There was an error while submitting the form. Please try again later.";
+    }
+
+    function escapeHtml(s) {
+        return String(s)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;");
     }
 
     // -------------------------------------------------------------------------
@@ -75,12 +124,31 @@
 
     function showFormAlert($form, type, text) {
         var messageAlert = "alert-" + type;
+        var safeBody = escapeHtml(String(text)).replace(/\n/g, "<br>");
         var alertBox =
             '<div class="alert ' + messageAlert + ' alert-dismissible fade show" role="alert">' +
             '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
             '<span aria-hidden="true">&times;</span></button>' +
-            '<span class="alert-message-text">' + text + "</span></div>";
+            '<span class="alert-message-text">' +
+            safeBody +
+            "</span></div>";
         $form.find(".messages").html(alertBox);
+    }
+
+    /** data-api-endpoint on the form overrides window.__CONFIG__.earlyAccessApiUrl */
+    function resolveFormEndpoint($form) {
+        var fromAttr = $form.attr("data-api-endpoint");
+        if (fromAttr) {
+            return fromAttr;
+        }
+        if (
+            typeof window !== "undefined" &&
+            window.__CONFIG__ &&
+            window.__CONFIG__.earlyAccessApiUrl
+        ) {
+            return window.__CONFIG__.earlyAccessApiUrl;
+        }
+        return null;
     }
 
     // -------------------------------------------------------------------------
@@ -131,7 +199,7 @@
                 return;
             }
             var v = $form.find('input[name="' + radioName + '"]:checked').val();
-            if (v === "other") {
+            if (v === "Other (please specify)") {
                 $wrap.show();
                 $other.prop("required", true);
             } else {
@@ -187,10 +255,14 @@
                 }
             }
 
-            var endpoint = $form.attr("data-api-endpoint");
+            var endpoint = resolveFormEndpoint($form);
             if (!endpoint) {
                 e.preventDefault();
-                showFormAlert($form, "danger", "Form is not configured (missing data-api-endpoint).");
+                showFormAlert(
+                    $form,
+                    "danger",
+                    "Form is not configured (missing API endpoint)."
+                );
                 return false;
             }
 
@@ -266,10 +338,14 @@
                 }
             }
 
-            var endpoint = $form.attr("data-api-endpoint");
+            var endpoint = resolveFormEndpoint($form);
             if (!endpoint) {
                 e.preventDefault();
-                showFormAlert($form, "danger", "Form is not configured (missing data-api-endpoint).");
+                showFormAlert(
+                    $form,
+                    "danger",
+                    "Form is not configured (missing API endpoint)."
+                );
                 return false;
             }
 

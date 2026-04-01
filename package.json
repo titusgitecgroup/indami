@@ -1,0 +1,13 @@
+{
+  "name": "indami-landing",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/inject-config.js",
+    "build:dev": "cross-env NODE_ENV=development node scripts/inject-config.js",
+    "build:prod": "cross-env NODE_ENV=production node scripts/inject-config.js"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.5"
+  }
+}
