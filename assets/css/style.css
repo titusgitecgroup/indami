@@ -1849,6 +1849,19 @@ p {
     position: relative;
 }
 
+.pricing-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: 1.5rem;
+}
+
+/* Third column a bit wider for longer Enterprise CTA; only when three columns fit */
+@media (min-width: 992px) {
+    .pricing-cards {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.25fr);
+    }
+}
+
 .price-tbl-single {
     position: relative;
     left: 0;
