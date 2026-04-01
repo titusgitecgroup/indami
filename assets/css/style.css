@@ -1847,6 +1847,8 @@ p {
 .price-tbl-single {
     position: relative;
     left: 0;
+    border: 3px solid #d7d9dd;
+    border-radius: 10px;
 }
 
 .price-tbl-single .table-inner {
@@ -1862,7 +1864,6 @@ p {
 
 .price-tbl-single.highlighted {
     z-index: 2;
-    border-radius: 10px;
     border: 3px solid #1a73ff
 }
 
@@ -1891,7 +1892,7 @@ p {
 
 #pricing-wrap .monthly,
 #pricing-wrap .yearly {
-    position: absolute;
+    /* position: absolute; */
     max-width: 350px;
     opacity: 1;
     -webkit-transform: scale(0.85);
@@ -1938,8 +1939,12 @@ p {
     text-transform: uppercase;
     -webkit-box-shadow: 0px 10px 30px 0px rgba(21, 10, 82, 0.35);
     box-shadow: 0px 10px 30px 0px rgba(21, 10, 82, 0.35);
-    background: linear-gradient(45deg, rgb(174, 14, 233) 0%, rgb(46, 25, 167) 100%);
+    background: linear-gradient(45deg, rgb(49, 57, 71) 0%, rgb(0, 0, 0) 100%);
     background-size: 100% auto
+}
+
+.price-tbl-single a.special {
+    background: linear-gradient(45deg, rgb(174, 14, 233) 0%, rgb(46, 25, 167) 100%);
 }
 
 .price-tbl-single a:hover {
@@ -3056,33 +3061,28 @@ p {
 ---------------------------------------------------------------------------------------*/
 
 #footer {
+    background-image: -webkit-gradient(linear, left top, right top, from(rgb(32, 0, 126)), to(rgb(230, 30, 182)));
+    background-image: linear-gradient(90deg, rgb(32, 0, 126) 0%, rgb(230, 30, 182) 100%);
     background-repeat: no-repeat;
     background-position: bottom;
-    padding: 230px 0 0
+    padding: 50px 0 0
 }
 
-#footer.bg-1 {
+/* #footer.bg-1 {
     background-image: url(../images/footer-bg-1.png);
-}
+} */
 
 #footer.bg-2 {
     background-image: url(../images/footer-bg-2.png);
 }
 
 .get-started {
-    border-radius: 5px;
-    background-image: -webkit-gradient(linear, left top, right top, from(rgb(32, 0, 126)), to(rgb(230, 30, 182)));
-    background-image: linear-gradient(90deg, rgb(32, 0, 126) 0%, rgb(230, 30, 182) 100%);
-    -webkit-box-shadow: 0px 10px 10px 0px rgba(2, 2, 2, 0.25);
-    box-shadow: 0px 10px 10px 0px rgba(2, 2, 2, 0.25);
-    padding: 50px 30px;
-    margin-top: -170px
+    padding: 0 0 30px 0;
 }
 
 .get-started.two {
     background-image: -webkit-gradient(linear, left top, right top, from(rgb(56, 144, 254)), to(rgb(157, 91, 254)));
     background-image: linear-gradient(90deg, rgb(56, 144, 254) 0%, rgb(157, 91, 254) 100%);
-
 }
 
 .get-started h2 {
@@ -3104,7 +3104,6 @@ p {
     padding: 15px 25px;
     border-radius: 30px;
     font-family: 'Open Sans', sans-serif;
-    margin: 42px 0 0;
     text-transform: uppercase;
     background-size: 100% auto
 }
