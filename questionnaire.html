@@ -52,7 +52,7 @@
     </div>
     <!--End Preloader-->
     <!--start header-->
-    <header id="header">
+    <header id="header" class="header-questionnaire">
         <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <a class="logo" href="index.html">
@@ -95,9 +95,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="index.html#faq-area">FAQ's</a>
                         </li>
-                        <li class="nav-item download-btn">
-                            <a class="nav-link active" href="questionnaire.html">Sign Up for Free Trial</a>
-                        </li>
+
                     </ul>
                 </div>
             </div>
@@ -110,8 +108,8 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 col-md-10">
-                    <div class="section-heading">
+                <div class="col-lg-12">
+                    <div class="section-heading mt-5 text-center">
                         <h2>Sign up for your free trial</h2>
                         <p>Help us understand your needs.</p>
                     </div>
@@ -121,136 +119,154 @@
                 <div class="col-lg-8 col-md-10">
                     <div class="trial-form-card">
                         <div class="contact-form trial-signup-form">
-                        <form id="ajax-trial-signup" action="#" method="post">
-                            <input type="hidden" name="form_type" value="free_trial">
-                            <div class="trial-form-fields">
-                            <p class="trial-form-fields-title">Your details</p>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="trial-name" name="name" placeholder="Name*" required="required" data-error="Name is required.">
-                                <div class="help-block with-errors"></div>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control" id="trial-email" name="email" placeholder="Email*" required="required" data-error="A valid email is required.">
-                                <div class="help-block with-errors"></div>
-                            </div>
-                            <div class="form-group">
-                                <input type="tel" class="form-control" id="trial-phone" name="phone" placeholder="Phone number*" required="required" data-error="Phone number is required.">
-                                <div class="help-block with-errors"></div>
-                            </div>
-                            </div>
-                            <div class="trial-form-divider" aria-hidden="true"></div>
-                            <div class="form-group trial-question-block">
-                                <p class="trial-q-label">1. Which best describes you?</p>
-                                <div class="trial-radio-row">
-                                    <label><input type="radio" name="q1_describes" value="Independent Oracle HCM Consultant" required><span class="trial-option-text">Independent Oracle HCM Consultant</span></label>
+                            <form id="ajax-trial-signup" action="#" method="post">
+                                <input type="hidden" name="form_type" value="free_trial">
+                                <div class="trial-form-fields">
+                                    <p class="trial-form-fields-title">Your details</p>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="trial-name" name="name" placeholder="Name*" required="required" data-error="Name is required.">
+                                        <div class="">
+                                            <small class="help-block with-errors"></small>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" id="trial-email" name="email" placeholder="Email*" required="required" data-error="A valid email is required.">
+                                        <div class="">
+                                            <small class="help-block with-errors"></small>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="tel" class="form-control" id="trial-phone" name="phone" placeholder="Phone number*" required="required" data-error="Phone number is required.">
+                                        <div class="">
+                                            <small class="help-block with-errors"></small>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="trial-radio-row">
-                                    <label><input type="radio" name="q1_describes" value="Oracle HCM Consulting Firm"><span class="trial-option-text">Oracle HCM Consulting Firm</span></label>
+                                <div class="trial-form-divider" aria-hidden="true"></div>
+                                <div class="form-group trial-question-block">
+                                    <p class="trial-q-label">1. Which best describes you?</p>
+                                    <div class="trial-radio-row">
+                                        <label><input type="radio" name="q1_describes" value="Independent Oracle HCM Consultant" required><span class="trial-option-text">Independent Oracle HCM Consultant</span></label>
+                                    </div>
+                                    <div class="trial-radio-row">
+                                        <label><input type="radio" name="q1_describes" value="Oracle HCM Consulting Firm"><span class="trial-option-text">Oracle HCM Consulting Firm</span></label>
+                                    </div>
+                                    <div class="trial-radio-row">
+                                        <label><input type="radio" name="q1_describes" value="Oracle HCM Customer (In-house team)"><span class="trial-option-text">Oracle HCM Customer (In-house team)</span></label>
+                                    </div>
+                                    <div class="trial-radio-row">
+                                        <label><input type="radio" name="q1_describes" value="Other (please specify)"><span class="trial-option-text">Other (please specify)</span></label>
+                                    </div>
+                                    <div class="trial-q-other-wrap" id="trial-q1-other-wrap" style="display:none;">
+                                        <input type="text" class="form-control" name="q1_other_specify" id="trial_q1_other_specify" placeholder="Please specify">
+                                    </div>
+                                    <div class="font-size-16">
+                                        <small class="help-block with-errors"></small>
+                                    </div>
                                 </div>
-                                <div class="trial-radio-row">
-                                    <label><input type="radio" name="q1_describes" value="Oracle HCM Customer (In-house team)"><span class="trial-option-text">Oracle HCM Customer (In-house team)</span></label>
+                                <div class="form-group trial-question-block">
+                                    <p class="trial-q-label">2. What would you primarily use INDAMI for? (Select all that apply)</p>
+                                    <div class="trial-check-row">
+                                        <label><input type="checkbox" name="q2_indami_use[]" value="Data migration (HDL creation, transformation)"><span class="trial-option-text">Data migration (HDL creation, transformation)</span></label>
+                                    </div>
+                                    <div class="trial-check-row">
+                                        <label><input type="checkbox" name="q2_indami_use[]" value="Data cleansing and validation"><span class="trial-option-text">Data cleansing and validation</span></label>
+                                    </div>
+                                    <div class="trial-check-row">
+                                        <label><input type="checkbox" name="q2_indami_use[]" value="Accelerating implementations"><span class="trial-option-text">Accelerating implementations</span></label>
+                                    </div>
+                                    <div class="trial-check-row">
+                                        <label><input type="checkbox" name="q2_indami_use[]" value="Fixing failed/complex data loads"><span class="trial-option-text">Fixing failed/complex data loads</span></label>
+                                    </div>
+                                    <div class="trial-check-row">
+                                        <label><input type="checkbox" name="q2_indami_use[]" value="Ongoing data management post-go-live"><span class="trial-option-text">Ongoing data management post-go-live</span></label>
+                                    </div>
+                                    <div class="">
+                                        <small class="help-block with-errors"></small>
+                                    </div>
                                 </div>
-                                <div class="trial-radio-row">
-                                    <label><input type="radio" name="q1_describes" value="Other (please specify)"><span class="trial-option-text">Other (please specify)</span></label>
+                                <div class="form-group trial-question-block">
+                                    <p class="trial-q-label">3. How would you describe your current data migration challenges?</p>
+                                    <div class="trial-radio-row">
+                                        <label><input type="radio" name="q3_migration_challenges" value="No major issues" required><span class="trial-option-text">No major issues</span></label>
+                                    </div>
+                                    <div class="trial-radio-row">
+                                        <label><input type="radio" name="q3_migration_challenges" value="Occasional challenges"><span class="trial-option-text">Occasional challenges</span></label>
+                                    </div>
+                                    <div class="trial-radio-row">
+                                        <label><input type="radio" name="q3_migration_challenges" value="Frequent delays or errors"><span class="trial-option-text">Frequent delays or errors</span></label>
+                                    </div>
+                                    <div class="trial-radio-row">
+                                        <label><input type="radio" name="q3_migration_challenges" value="Critical bottleneck impacting projects"><span class="trial-option-text">Critical bottleneck impacting projects</span></label>
+                                    </div>
+                                    <div class="">
+                                        <small class="help-block with-errors"></small>
+                                    </div>
                                 </div>
-                                <div class="trial-q-other-wrap" id="trial-q1-other-wrap" style="display:none;">
-                                    <input type="text" class="form-control" name="q1_other_specify" id="trial_q1_other_specify" placeholder="Please specify">
+                                <div class="form-group trial-question-block">
+                                    <p class="trial-q-label">4. If INDAMI significantly improved your data migration process, what monthly price range would you consider reasonable?</p>
+                                    <div class="trial-radio-row">
+                                        <label><input type="radio" name="q4_monthly_price_range" value="Less than $50/month" required><span class="trial-option-text">Less than $50/month</span></label>
+                                    </div>
+                                    <div class="trial-radio-row">
+                                        <label><input type="radio" name="q4_monthly_price_range" value="$50 – $150/month"><span class="trial-option-text">$50 – $150/month</span></label>
+                                    </div>
+                                    <div class="trial-radio-row">
+                                        <label><input type="radio" name="q4_monthly_price_range" value="$150 – $500/month"><span class="trial-option-text">$150 – $500/month</span></label>
+                                    </div>
+                                    <div class="trial-radio-row">
+                                        <label><input type="radio" name="q4_monthly_price_range" value="$500 – $1,000/month"><span class="trial-option-text">$500 – $1,000/month</span></label>
+                                    </div>
+                                    <div class="trial-radio-row">
+                                        <label><input type="radio" name="q4_monthly_price_range" value="$1,000+/month"><span class="trial-option-text">$1,000+/month</span></label>
+                                    </div>
+                                    <div class="">
+                                        <small class="help-block with-errors"></small>
+                                    </div>
                                 </div>
-                                <div class="help-block with-errors"></div>
-                            </div>
-                            <div class="form-group trial-question-block">
-                                <p class="trial-q-label">2. What would you primarily use INDAMI for? (Select all that apply)</p>
-                                <div class="trial-check-row">
-                                    <label><input type="checkbox" name="q2_indami_use[]" value="Data migration (HDL creation, transformation)"><span class="trial-option-text">Data migration (HDL creation, transformation)</span></label>
+                                <div class="form-group trial-question-block">
+                                    <p class="trial-q-label">5. What outcome would make INDAMI a "must-have" for you?</p>
+                                    <div class="trial-radio-row">
+                                        <label><input type="radio" name="q5_must_have_outcome" value="Saves a few hours per project" required><span class="trial-option-text">Saves a few hours per project</span></label>
+                                    </div>
+                                    <div class="trial-radio-row">
+                                        <label><input type="radio" name="q5_must_have_outcome" value="Reduces errors and rework"><span class="trial-option-text">Reduces errors and rework</span></label>
+                                    </div>
+                                    <div class="trial-radio-row">
+                                        <label><input type="radio" name="q5_must_have_outcome" value="Speeds up implementations significantly"><span class="trial-option-text">Speeds up implementations significantly</span></label>
+                                    </div>
+                                    <div class="trial-radio-row">
+                                        <label><input type="radio" name="q5_must_have_outcome" value="Eliminates major data migration risks"><span class="trial-option-text">Eliminates major data migration risks</span></label>
+                                    </div>
+                                    <div class="trial-radio-row">
+                                        <label><input type="radio" name="q5_must_have_outcome" value="Becomes essential to every project"><span class="trial-option-text">Becomes essential to every project</span></label>
+                                    </div>
+                                    <div class="">
+                                        <small class="help-block with-errors"></small>
+                                    </div>
                                 </div>
-                                <div class="trial-check-row">
-                                    <label><input type="checkbox" name="q2_indami_use[]" value="Data cleansing and validation"><span class="trial-option-text">Data cleansing and validation</span></label>
+                                <div class="form-group trial-question-block">
+                                    <p class="trial-q-label">6. Are you involved in purchasing tools like this?</p>
+                                    <div class="trial-radio-row">
+                                        <label><input type="radio" name="q6_purchasing_involvement" value="Yes, I make purchasing decisions" required><span class="trial-option-text">Yes, I make purchasing decisions</span></label>
+                                    </div>
+                                    <div class="trial-radio-row">
+                                        <label><input type="radio" name="q6_purchasing_involvement" value="I influence decisions"><span class="trial-option-text">I influence decisions</span></label>
+                                    </div>
+                                    <div class="trial-radio-row">
+                                        <label><input type="radio" name="q6_purchasing_involvement" value="No, but I would recommend it"><span class="trial-option-text">No, but I would recommend it</span></label>
+                                    </div>
+                                    <div class="">
+                                        <small class="help-block with-errors"></small>
+                                    </div>
                                 </div>
-                                <div class="trial-check-row">
-                                    <label><input type="checkbox" name="q2_indami_use[]" value="Accelerating implementations"><span class="trial-option-text">Accelerating implementations</span></label>
+                                <div class="form-group contact-turnstile">
+                                    <div id="cf-turnstile-trial" class="cf-turnstile"></div>
+                                    <div class="help-block with-errors turnstile-error"></div>
                                 </div>
-                                <div class="trial-check-row">
-                                    <label><input type="checkbox" name="q2_indami_use[]" value="Fixing failed/complex data loads"><span class="trial-option-text">Fixing failed/complex data loads</span></label>
-                                </div>
-                                <div class="trial-check-row">
-                                    <label><input type="checkbox" name="q2_indami_use[]" value="Ongoing data management post-go-live"><span class="trial-option-text">Ongoing data management post-go-live</span></label>
-                                </div>
-                                <div class="help-block with-errors"></div>
-                            </div>
-                            <div class="form-group trial-question-block">
-                                <p class="trial-q-label">3. How would you describe your current data migration challenges?</p>
-                                <div class="trial-radio-row">
-                                    <label><input type="radio" name="q3_migration_challenges" value="No major issues" required><span class="trial-option-text">No major issues</span></label>
-                                </div>
-                                <div class="trial-radio-row">
-                                    <label><input type="radio" name="q3_migration_challenges" value="Occasional challenges"><span class="trial-option-text">Occasional challenges</span></label>
-                                </div>
-                                <div class="trial-radio-row">
-                                    <label><input type="radio" name="q3_migration_challenges" value="Frequent delays or errors"><span class="trial-option-text">Frequent delays or errors</span></label>
-                                </div>
-                                <div class="trial-radio-row">
-                                    <label><input type="radio" name="q3_migration_challenges" value="Critical bottleneck impacting projects"><span class="trial-option-text">Critical bottleneck impacting projects</span></label>
-                                </div>
-                                <div class="help-block with-errors"></div>
-                            </div>
-                            <div class="form-group trial-question-block">
-                                <p class="trial-q-label">4. If INDAMI significantly improved your data migration process, what monthly price range would you consider reasonable?</p>
-                                <div class="trial-radio-row">
-                                    <label><input type="radio" name="q4_monthly_price_range" value="Less than $50/month" required><span class="trial-option-text">Less than $50/month</span></label>
-                                </div>
-                                <div class="trial-radio-row">
-                                    <label><input type="radio" name="q4_monthly_price_range" value="$50 – $150/month"><span class="trial-option-text">$50 – $150/month</span></label>
-                                </div>
-                                <div class="trial-radio-row">
-                                    <label><input type="radio" name="q4_monthly_price_range" value="$150 – $500/month"><span class="trial-option-text">$150 – $500/month</span></label>
-                                </div>
-                                <div class="trial-radio-row">
-                                    <label><input type="radio" name="q4_monthly_price_range" value="$500 – $1,000/month"><span class="trial-option-text">$500 – $1,000/month</span></label>
-                                </div>
-                                <div class="trial-radio-row">
-                                    <label><input type="radio" name="q4_monthly_price_range" value="$1,000+/month"><span class="trial-option-text">$1,000+/month</span></label>
-                                </div>
-                                <div class="help-block with-errors"></div>
-                            </div>
-                            <div class="form-group trial-question-block">
-                                <p class="trial-q-label">5. What outcome would make INDAMI a "must-have" for you?</p>
-                                <div class="trial-radio-row">
-                                    <label><input type="radio" name="q5_must_have_outcome" value="Saves a few hours per project" required><span class="trial-option-text">Saves a few hours per project</span></label>
-                                </div>
-                                <div class="trial-radio-row">
-                                    <label><input type="radio" name="q5_must_have_outcome" value="Reduces errors and rework"><span class="trial-option-text">Reduces errors and rework</span></label>
-                                </div>
-                                <div class="trial-radio-row">
-                                    <label><input type="radio" name="q5_must_have_outcome" value="Speeds up implementations significantly"><span class="trial-option-text">Speeds up implementations significantly</span></label>
-                                </div>
-                                <div class="trial-radio-row">
-                                    <label><input type="radio" name="q5_must_have_outcome" value="Eliminates major data migration risks"><span class="trial-option-text">Eliminates major data migration risks</span></label>
-                                </div>
-                                <div class="trial-radio-row">
-                                    <label><input type="radio" name="q5_must_have_outcome" value="Becomes essential to every project"><span class="trial-option-text">Becomes essential to every project</span></label>
-                                </div>
-                                <div class="help-block with-errors"></div>
-                            </div>
-                            <div class="form-group trial-question-block">
-                                <p class="trial-q-label">6. Are you involved in purchasing tools like this?</p>
-                                <div class="trial-radio-row">
-                                    <label><input type="radio" name="q6_purchasing_involvement" value="Yes, I make purchasing decisions" required><span class="trial-option-text">Yes, I make purchasing decisions</span></label>
-                                </div>
-                                <div class="trial-radio-row">
-                                    <label><input type="radio" name="q6_purchasing_involvement" value="I influence decisions"><span class="trial-option-text">I influence decisions</span></label>
-                                </div>
-                                <div class="trial-radio-row">
-                                    <label><input type="radio" name="q6_purchasing_involvement" value="No, but I would recommend it"><span class="trial-option-text">No, but I would recommend it</span></label>
-                                </div>
-                                <div class="help-block with-errors"></div>
-                            </div>
-                            <div class="form-group contact-turnstile">
-                                <div id="cf-turnstile-trial" class="cf-turnstile"></div>
-                                <div class="help-block with-errors turnstile-error"></div>
-                            </div>
-                            <button type="submit">Sign up</button>
-                            <div class="messages"></div>
-                        </form>
+                                <button type="submit">Sign up</button>
+                                <div class="messages"></div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -258,12 +274,11 @@
         </div>
     </section>
     <!--end free trial signup area-->
-    <footer id="footer" class="bg-1">
+    <footer id="footer" class="bg-1 pt-0">
         <div class="container">
-            <div class="footer-copyright pt-5 pb-4">
+            <div class="footer-copyright border-0 pb-4">
                 <div class="row">
                     <div class="col-lg-12">
-                        <p class="text-center mb-0"><a href="index.html">Back to home</a></p>
                         <p class="text-center mt-2">&copy; 2026 INDAMI | All right reserved.</p>
                     </div>
                 </div>
@@ -279,13 +294,13 @@
     <script src="assets/js/turnstile-init.js"></script>
     <script src="assets/js/Questionare.js"></script>
     <script>
-    (function ($) {
-        $(window).on("load", function () { $(".preloader").fadeOut(500); });
-        $(window).on("scroll", function () {
-            if ($(window).scrollTop() < 100) $("#header").removeClass("sticky");
-            else $("#header").addClass("sticky");
-        });
-    })(jQuery);
+        (function ($) {
+            $(window).on("load", function () { $(".preloader").fadeOut(500); });
+            $(window).on("scroll", function () {
+                if ($(window).scrollTop() < 100) $("#header").removeClass("sticky");
+                else $("#header").addClass("sticky");
+            });
+        })(jQuery);
     </script>
 </body>
 

@@ -315,6 +315,11 @@ p {
     transition: 0.5s;
 }
 
+#header.header-questionnaire {
+    background: -webkit-gradient(linear, left top, right top, from(#20007e), to(#e61eb6));
+    background: linear-gradient(90deg, #20007e 0%, #e61eb6 100%);
+}
+
 #header.sticky {
     position: fixed;
     width: 100%;
