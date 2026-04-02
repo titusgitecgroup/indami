@@ -308,6 +308,73 @@
         var $q1OtherWrap = $("#trial-q1-other-wrap");
         var $q1Other = $("#trial_q1_other_specify");
         var syncQ1Other = createQ1OtherSync($form, $q1OtherWrap, $q1Other, "q1_describes");
+        var trialPendingSubmit = false;
+
+        function runTrialAjaxSubmit() {
+            var $btn = $form.find('button[type="submit"]');
+            var endpoint = resolveFormEndpoint($form);
+            if (!endpoint) {
+                $btn.prop("disabled", false);
+                showFormAlert(
+                    $form,
+                    "danger",
+                    "Form is not configured (missing API endpoint)."
+                );
+                return;
+            }
+
+            $.ajax({
+                type: "POST",
+                url: endpoint,
+                data: $form.serialize(),
+                contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+                dataType: "json"
+            })
+                .done(function (data) {
+                    var msg = messageFromSuccessPayload(defaultSuccessMessage, data);
+                    showFormAlert($form, "success", msg);
+                    $form[0].reset();
+                    syncQ1Other();
+                    resetTurnstileTrial($form);
+                })
+                .fail(function (jqXHR) {
+                    showFormAlert($form, "danger", messageFromErrorPayload(jqXHR, true));
+                })
+                .always(function () {
+                    $btn.prop("disabled", false);
+                });
+        }
+
+        window.__cfTurnstileTrialReady = function () {
+            if (!trialPendingSubmit) {
+                return;
+            }
+            trialPendingSubmit = false;
+            if (!getTurnstileToken(window.__cfTurnstileTrial)) {
+                $form.find('button[type="submit"]').prop("disabled", false);
+                $form.find(".turnstile-error").text("Verification failed. Please try again.");
+                return;
+            }
+            runTrialAjaxSubmit();
+        };
+
+        window.__cfTurnstileTrialError = function () {
+            if (!trialPendingSubmit) {
+                return;
+            }
+            trialPendingSubmit = false;
+            $form.find('button[type="submit"]').prop("disabled", false);
+            $form.find(".turnstile-error").text("Verification failed. Please try again.");
+        };
+
+        window.__cfTurnstileTrialExpired = function () {
+            if (!trialPendingSubmit) {
+                return;
+            }
+            trialPendingSubmit = false;
+            $form.find('button[type="submit"]').prop("disabled", false);
+            $form.find(".turnstile-error").text("Verification expired. Please submit again.");
+        };
 
         $form.on("change", 'input[name="q1_describes"]', syncQ1Other);
         syncQ1Other();
@@ -330,6 +397,23 @@
             }
 
             if (typeof turnstile !== "undefined" && $form.find("#cf-turnstile-trial").length) {
+                if (window.__cfTurnstileTrialInvisible) {
+                    e.preventDefault();
+                    var endpointInvisible = resolveFormEndpoint($form);
+                    if (!endpointInvisible) {
+                        showFormAlert(
+                            $form,
+                            "danger",
+                            "Form is not configured (missing API endpoint)."
+                        );
+                        return false;
+                    }
+                    var $btnInvisible = $form.find('button[type="submit"]');
+                    $btnInvisible.prop("disabled", true);
+                    trialPendingSubmit = true;
+                    turnstile.execute(window.__cfTurnstileTrial);
+                    return false;
+                }
                 var token = getTurnstileToken(window.__cfTurnstileTrial);
                 if (!token) {
                     e.preventDefault();
@@ -351,27 +435,7 @@
 
             var $btn = $form.find('button[type="submit"]');
             $btn.prop("disabled", true);
-
-            $.ajax({
-                type: "POST",
-                url: endpoint,
-                data: $form.serialize(),
-                contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-                dataType: "json"
-            })
-                .done(function (data) {
-                    var msg = messageFromSuccessPayload(defaultSuccessMessage, data);
-                    showFormAlert($form, "success", msg);
-                    $form[0].reset();
-                    syncQ1Other();
-                    resetTurnstileTrial($form);
-                })
-                .fail(function (jqXHR) {
-                    showFormAlert($form, "danger", messageFromErrorPayload(jqXHR, true));
-                })
-                .always(function () {
-                    $btn.prop("disabled", false);
-                });
+            runTrialAjaxSubmit();
 
             return false;
         });
