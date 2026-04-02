@@ -13,7 +13,26 @@
         var trial = document.getElementById('cf-turnstile-trial');
         var contact = document.getElementById('cf-turnstile-contact');
         if (trial && !trial.getAttribute('data-cf-rendered')) {
-            window.__cfTurnstileTrial = turnstile.render('#cf-turnstile-trial', { sitekey: SITEKEY });
+            window.__cfTurnstileTrialInvisible = true;
+            window.__cfTurnstileTrial = turnstile.render('#cf-turnstile-trial', {
+                sitekey: SITEKEY,
+                size: 'invisible',
+                callback: function () {
+                    if (typeof window.__cfTurnstileTrialReady === 'function') {
+                        window.__cfTurnstileTrialReady();
+                    }
+                },
+                'error-callback': function () {
+                    if (typeof window.__cfTurnstileTrialError === 'function') {
+                        window.__cfTurnstileTrialError();
+                    }
+                },
+                'expired-callback': function () {
+                    if (typeof window.__cfTurnstileTrialExpired === 'function') {
+                        window.__cfTurnstileTrialExpired();
+                    }
+                }
+            });
             trial.setAttribute('data-cf-rendered', '1');
         }
         if (contact && !contact.getAttribute('data-cf-rendered')) {

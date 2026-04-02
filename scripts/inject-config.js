@@ -1,14 +1,18 @@
 /**
  * Writes assets/js/config.generated.js from environment variables.
  *
- * NODE_ENV=development (default): loads .env.development, then .env (local overrides).
- * NODE_ENV=production: uses only process.env — set PUBLIC_* in CI/host (no dotenv files).
+ * Local (NODE_ENV not production): loads .env.development, then .env.
+ * Production / Vercel: never loads dotenv files — use PUBLIC_* from the host only.
+ *
+ * Vercel sometimes runs the build with NODE_ENV !== "production"; if we loaded
+ * .env.development here with override:true, it would overwrite dashboard env vars.
  */
 var fs = require("fs");
 var path = require("path");
 
 var nodeEnv = process.env.NODE_ENV || "development";
 var isProduction = nodeEnv === "production";
+var isVercel = process.env.VERCEL === "1";
 
 function loadDotenv() {
     try {
@@ -27,21 +31,20 @@ function loadDotenv() {
     }
 }
 
-if (!isProduction) {
+if (!isProduction && !isVercel) {
     loadDotenv();
 }
 
 var siteKey;
 var earlyAccessApiUrl;
 
-if (isProduction) {
-    siteKey = process.env.PUBLIC_TURNSTILE_SITE_KEY;
-    earlyAccessApiUrl = process.env.PUBLIC_EARLY_ACCESS_API_URL;
+if (isProduction || isVercel) {
+    siteKey = process.env.PUBLIC_TURNSTILE_SITE_KEY || "";
+    earlyAccessApiUrl = process.env.PUBLIC_EARLY_ACCESS_API_URL || "";
     if (!siteKey || !earlyAccessApiUrl) {
-        console.error(
-            "Production build requires PUBLIC_TURNSTILE_SITE_KEY and PUBLIC_EARLY_ACCESS_API_URL in the environment."
+        console.warn(
+            "Warning: Set PUBLIC_TURNSTILE_SITE_KEY and PUBLIC_EARLY_ACCESS_API_URL in the Vercel project Environment Variables. Build continues with empty placeholders."
         );
-        process.exit(1);
     }
 } else {
     siteKey =

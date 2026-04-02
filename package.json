@@ -2,7 +2,7 @@
   "name": "indami-landing",
   "private": true,
   "engines": {
-    "node": "20.11.1"
+    "node": "20.x"
   },
   "scripts": {
     "build": "node scripts/inject-config.js",
