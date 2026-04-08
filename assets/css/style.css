@@ -1210,13 +1210,29 @@ p {
 .counter-single .icon {
     width: 70px;
     height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 0 auto 50px;
-    line-height: 65px;
+    line-height: 1;
     position: relative;
     border-radius: 50%;
     background-color: #fff;
-    font-size: 40px;
+    font-size: 48px;
     z-index: 9
+}
+
+.counter-single .icon i {
+    display: inline-block;
+    background-image: linear-gradient(90deg, #ae0ee9 0%, #2e19a7 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+.counter-single .icon img {
+    filter: brightness(0) invert(1);
 }
 
 .counter-single .icon:before {
@@ -1458,6 +1474,10 @@ p {
     animation-name: fadeInLeft;
 }
 
+.feature-link img {
+    border-radius: 10px;
+}
+
 @-webkit-keyframes fadeInLeft {
     0% {
         opacity: 0;
@@ -1554,7 +1574,7 @@ p {
     border-radius: 50%;
     text-align: center;
     color: #fff;
-    font-size: 50px;
+    font-size: 72px;
 }
 
 .how-work-single.two i {
