@@ -946,7 +946,17 @@ p {
     position: absolute;
     top: 120px;
     right: 110px;
+    width: 512px;
+    height: 882px;
     z-index: 2;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.about-app-mocup img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .about-cont {
