@@ -953,12 +953,6 @@ p {
     border-radius: 10px;
 }
 
-.about-app-mocup img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
 .about-cont {
     margin-top: 260px
 }
@@ -1077,13 +1071,13 @@ p {
     color: #e8f2fe
 }
 
-.value-statement-area {
+/* .value-statement-area {
     background: -webkit-gradient(linear, left top, right top, from(#20007e), to(#e61eb6));
     background: linear-gradient(90deg, #20007e 0%, #e61eb6 100%);
-}
+} */
 
 .video-cont {
-    background-image: url(../images/video-bg.png);
+    background-image: url(../images/pic-valuestatement.svg);
     background-repeat: no-repeat;
     background-position: center;
     width: 708px;
