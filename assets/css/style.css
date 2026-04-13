@@ -393,9 +393,11 @@ p {
 ---------------------------------------------------------------------------------------*/
 
 #home-area.bg-1 {
-    background-image: url(../../new-assets/images/home-bg-1.png);
+    background-image: url(../images/home-bg-1.png);
     background-repeat: no-repeat;
-    background-position: bottom;
+    background-position: 0 0;
+    background-size: cover;
+    padding-bottom: 60px;
     margin-bottom: 60px;
     position: relative;
     overflow: hidden;
@@ -446,7 +448,7 @@ p {
 }
 
 .caption {
-    padding: 230px 0 380px;
+    padding: 230px 0 320px;
 }
 
 .caption.two {
