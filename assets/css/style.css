@@ -397,8 +397,6 @@ p {
     background-repeat: no-repeat;
     background-position: 0 0;
     background-size: cover;
-    padding-bottom: 60px;
-    margin-bottom: 60px;
     position: relative;
     overflow: hidden;
 }
@@ -946,13 +944,12 @@ p {
 
 .about-app-mocup {
     position: absolute;
-    top: 120px;
+    top: 0;
     right: 110px;
     width: 512px;
     height: 882px;
     z-index: 2;
     overflow: hidden;
-    border-radius: 10px;
 }
 
 .about-app-mocup img {
@@ -1391,8 +1388,18 @@ p {
     width: 90px;
     height: 90px;
     line-height: 90px;
+    position: relative;
     border-radius: 50%;
     margin: 0 auto
+}
+
+.awesome-feat-single .icon i {
+    font-size: 48px;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .awesome-feat-single .icon.two {
@@ -1514,7 +1521,8 @@ p {
     padding: 112px 0 410px;
     background-repeat: no-repeat;
     background-position: bottom right;
-    background-image: url(../images/how-work-bg-1.png)
+    background-size: 50%;
+    background-image: url(../images/bg-howitwork.svg);
 }
 
 #how-work-area.bg-1 {
@@ -1793,7 +1801,7 @@ p {
 ---------------------------------------------------------------------------------------*/
 
 #pricing-area {
-    padding: 115px 0 375px;
+    padding: 115px 0 115px;
     background-image: url(../images/pricing-bg-left.png), url(../images/pricing-bg-right.png);
     background-position: left top, right top;
     background-repeat: no-repeat, no-repeat;
