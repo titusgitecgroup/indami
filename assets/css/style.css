@@ -45,7 +45,6 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-
 }
 
 body {
@@ -393,7 +392,7 @@ p {
 ---------------------------------------------------------------------------------------*/
 
 #home-area.bg-1 {
-    background-image: url(../images/home-bg-1.png);
+    background-image: url(../images/home-bg-1.svg);
     background-repeat: no-repeat;
     background-position: 0 0;
     background-size: cover;
@@ -443,6 +442,10 @@ p {
     background-image: url(../images/home-bg-2.jpg);
     background-repeat: no-repeat;
     background-size: 100% 100%
+}
+
+.home-3steps {
+    padding: 0 20px 50px;
 }
 
 .caption {
@@ -1201,8 +1204,8 @@ p {
 }
 
 .counter-single .icon {
-    width: 70px;
-    height: 70px;
+    width: 90px;
+    height: 90px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1210,8 +1213,8 @@ p {
     line-height: 1;
     position: relative;
     border-radius: 50%;
-    background-color: #fff;
-    font-size: 48px;
+    /* background-color: #fff; */
+    /* font-size: 48px; */
     z-index: 9
 }
 
@@ -1224,17 +1227,17 @@ p {
     -webkit-text-fill-color: transparent;
 }
 
-.counter-single .icon img {
+/* .counter-single .icon img {
     filter: brightness(0) invert(1);
-}
+} */
 
 .counter-single .icon:before {
     width: 125px;
     height: 125px;
     position: absolute;
     content: '';
-    top: -27px;
-    left: -28px;
+    top: -20px;
+    left: -18px;
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.2);
 }
@@ -1244,10 +1247,10 @@ p {
     height: 100px;
     position: absolute;
     content: '';
-    top: -14px;
-    left: -15px;
+    top: -7px;
+    left: -5px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 1);
     z-index: -1
 }
 
