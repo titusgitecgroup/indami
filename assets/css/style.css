@@ -309,7 +309,7 @@ p {
     top: 0;
     width: 100%;
     z-index: 99;
-    padding: 15px 0;
+    padding: 10px 0;
     -webkit-transition: 0.5s;
     transition: 0.5s;
 }
