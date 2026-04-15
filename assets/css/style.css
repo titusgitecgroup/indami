@@ -325,7 +325,7 @@ p {
     z-index: 9999;
     background: -webkit-gradient(linear, left top, right top, from(#20007e), to(#e61eb6));
     background: linear-gradient(90deg, #20007e 0%, #e61eb6 100%);
-    padding: 20px 0;
+    padding: 0;
     -webkit-box-shadow: 0 0 10px #111;
     box-shadow: 0 0 10px #111
 }
@@ -445,11 +445,11 @@ p {
 }
 
 .home-3steps {
-    padding: 0 20px 50px;
+    padding: 0 20px;
 }
 
 .caption {
-    padding: 230px 0 320px;
+    padding: 230px 0 200px;
 }
 
 .caption.two {
@@ -945,16 +945,6 @@ p {
     background-image: url(../images/about-bg-3.png)
 }
 
-.about-app-mocup {
-    position: absolute;
-    top: 0;
-    right: 110px;
-    width: 512px;
-    height: 882px;
-    z-index: 2;
-    overflow: hidden;
-}
-
 .about-cont {
     margin-top: 260px
 }
@@ -1278,7 +1268,8 @@ p {
 }
 
 #awesome-feat-area.bg-1 {
-    background-image: url("../../new-assets/images/awesome-feat-bg-1.png");
+    background-image: url("../images/awesome-feat-bg-1.png");
+    /* background-image: url("../../new-assets/images/awesome-feat-bg-1.png"); */
     position: relative;
 }
 

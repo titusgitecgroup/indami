@@ -20,8 +20,20 @@
 @media only screen and (min-width: 1280px) {
     .home-3steps {
         position: absolute;
-        bottom: 10%;
+        bottom: 8%;
         right: 2%;
+    }
+
+    .about-app-mocup img {
+        max-width: 500px;
+    }
+
+    .about-app-mocup {
+        position: absolute;
+        top: 120px;
+        right: 110px;
+        z-index: 2;
+        overflow: hidden;
     }
 }
 
