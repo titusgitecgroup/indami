@@ -392,7 +392,7 @@ p {
 ---------------------------------------------------------------------------------------*/
 
 #home-area.bg-1 {
-    background-image: url(../images/home-bg-1.svg);
+    background-image: url(../images/home-bg-1.jpg);
     background-repeat: no-repeat;
     background-position: 0 0;
     background-size: cover;
@@ -446,6 +446,139 @@ p {
 
 .home-3steps {
     padding: 0 20px;
+}
+
+.home-steps {
+    max-width: 430px;
+    margin: 0 auto;
+    padding: 0 0 40px;
+}
+
+.home-steps__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    text-align: center;
+    font-weight: normal;
+    letter-spacing: 0.22em;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.75);
+    position: relative;
+    margin-bottom: 18px;
+}
+
+.home-steps__title::before {
+    content: "";
+    position: static;
+    width: 50px;
+    height: 2px;
+    border-radius: 999px;
+    background: linear-gradient(270deg, rgba(255, 95, 242, 0.8) 0%, rgba(255, 95, 242, 0) 100%);
+}
+
+.home-steps__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 10px;
+}
+
+.home-steps__item {
+    position: relative;
+}
+
+.home-steps__card {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    min-height: 120px;
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    overflow: hidden;
+}
+
+.home-steps__content {
+    font-size: 12px;
+    font-weight: normal;
+    color: rgba(255, 255, 255, 0.75);
+    padding: 15px;
+    min-height: 120px;
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.01) 60%, rgba(255, 255, 255, 0.01) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.home-steps__content h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.home-steps_content_icon {
+    width: 90px;
+    height: 90px;
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-steps__badge {
+    position: absolute;
+    left: -14px;
+    top: -14px;
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    color: #ffffff;
+    background: radial-gradient(circle at 30% 30%, #FF5FF2 0%, #ff31d5 35%, #C71585 70%, #2e19a7 100%);
+    box-shadow:
+        0 0 0 6px rgba(255, 49, 213, 0.18),
+        0 14px 32px rgba(255, 49, 213, 0.35);
+}
+
+.home-steps__connector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 18px;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.home-steps__connector svg {
+    width: 18px;
+    height: 18px;
+    stroke: rgba(255, 255, 255, 0.65);
+}
+
+@media (max-width: 575.98px) {
+    .home-steps {
+        max-width: 100%;
+    }
+
+    .home-steps__card {
+        border-radius: 16px;
+    }
+
+    .home-steps__content {
+        padding: 18px 18px;
+    }
+
+    .home-steps__badge {
+        left: -10px;
+        top: -10px;
+        width: 38px;
+        height: 38px;
+    }
 }
 
 .caption {
@@ -1886,7 +2019,7 @@ p {
 /* Third column a bit wider for longer Enterprise CTA; only when three columns fit */
 @media (min-width: 992px) {
     .pricing-cards {
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.25fr);
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
     }
 }
 
@@ -1895,6 +2028,7 @@ p {
     left: 0;
     border: 3px solid #d7d9dd;
     border-radius: 10px;
+    min-height: 330px;
 }
 
 .price-tbl-single .table-inner {
@@ -1902,6 +2036,10 @@ p {
     padding: 24px 30px;
     text-align: center;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
 }
 
 .price-tbl-single.v-dark .table-inner {
@@ -1976,6 +2114,7 @@ p {
 }
 
 .price-tbl-single a {
+    margin-top: auto;
     display: inline-block;
     padding: 15px 36px;
     border-radius: 30px;
