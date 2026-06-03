@@ -1,0 +1,29 @@
+<svg width="1920" height="800" viewBox="0 0 1920 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="counterWaveGrad" x1="0" y1="400" x2="1920" y2="400" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#206792"/>
+      <stop offset="1" stop-color="#57ECED"/>
+    </linearGradient>
+    <radialGradient id="counterBlobGrad1" cx="30%" cy="30%" r="70%">
+      <stop stop-color="#57ECED" stop-opacity="0.55"/>
+      <stop offset="0.55" stop-color="#206792" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#03334B" stop-opacity="0.2"/>
+    </radialGradient>
+    <radialGradient id="counterBlobGrad2" cx="30%" cy="30%" r="70%">
+      <stop stop-color="#57ECED" stop-opacity="0.5"/>
+      <stop offset="0.6" stop-color="#206792" stop-opacity="0.3"/>
+      <stop offset="1" stop-color="#03334B" stop-opacity="0.15"/>
+    </radialGradient>
+    <radialGradient id="counterBlobGrad3" cx="30%" cy="30%" r="70%">
+      <stop stop-color="#57ECED" stop-opacity="0.45"/>
+      <stop offset="0.55" stop-color="#206792" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#03334B" stop-opacity="0.12"/>
+    </radialGradient>
+  </defs>
+  <!-- Wavy header shape (matches counter-bg-1.png layout) -->
+  <path d="M0 248C118 168 248 312 392 228C536 156 648 296 812 212C976 132 1108 268 1288 196C1468 128 1648 248 1768 188C1848 148 1888 168 1920 188V800H0V248Z" fill="url(#counterWaveGrad)"/>
+  <!-- Decorative bubbles -->
+  <circle cx="520" cy="300" r="52" fill="url(#counterBlobGrad1)" opacity="0.85"/>
+  <circle cx="760" cy="380" r="68" fill="url(#counterBlobGrad2)" opacity="0.8"/>
+  <circle cx="1680" cy="560" r="58" fill="url(#counterBlobGrad3)" opacity="0.75"/>
+</svg>

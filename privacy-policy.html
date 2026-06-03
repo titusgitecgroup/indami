@@ -2,15 +2,7 @@
 <html lang="zxx">
 
 <head>
-    <script>
-        /* Dev-only: hostname is never 127.0.0.1 on real prod/staging domains, so this is a no-op there.
-           localhost vs 127.0.0.1 are different origins; Turnstile/API checks often allow only one. */
-        (function () {
-            if (location.hostname === "127.0.0.1") {
-                location.replace(location.href.replace("//127.0.0.1", "//localhost"));
-            }
-        })();
-    </script>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="keywords" content="">
@@ -129,169 +121,47 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-heading mt-5 text-center">
-                        <h2>Sign up for your free trial</h2>
-                        <p>Help us understand your needs.</p>
+                        <h2>Privacy Policy</h2>
                     </div>
                 </div>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-8 col-md-10">
-                    <div class="trial-form-card">
-                        <div class="contact-form trial-signup-form">
-                            <form id="ajax-trial-signup" action="#" method="post">
-                                <input type="hidden" name="form_type" value="free_trial">
-                                <div class="trial-form-fields">
-                                    <p class="trial-form-fields-title">Your details</p>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" id="trial-name" name="name" placeholder="Name*" required="required" data-error="Name is required.">
-                                        <div class="">
-                                            <small class="help-block with-errors"></small>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="email" class="form-control" id="trial-email" name="email" placeholder="Email*" required="required" data-error="A valid email is required.">
-                                        <div class="">
-                                            <small class="help-block with-errors"></small>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="tel" class="form-control" id="trial-phone" name="phone" placeholder="Phone number*" required="required" data-error="Phone number is required.">
-                                        <div class="">
-                                            <small class="help-block with-errors"></small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="trial-form-divider" aria-hidden="true"></div>
-                                <div class="form-group trial-question-block">
-                                    <p class="trial-q-label">1. Which best describes you?</p>
-                                    <div class="trial-radio-row">
-                                        <label><input type="radio" name="q1_describes" value="Independent Oracle HCM Consultant" required><span class="trial-option-text">Independent Oracle HCM Consultant</span></label>
-                                    </div>
-                                    <div class="trial-radio-row">
-                                        <label><input type="radio" name="q1_describes" value="Oracle HCM Consulting Firm"><span class="trial-option-text">Oracle HCM Consulting Firm</span></label>
-                                    </div>
-                                    <div class="trial-radio-row">
-                                        <label><input type="radio" name="q1_describes" value="Oracle HCM Customer (In-house team)"><span class="trial-option-text">Oracle HCM Customer (In-house team)</span></label>
-                                    </div>
-                                    <div class="trial-radio-row">
-                                        <label><input type="radio" name="q1_describes" value="Other (please specify)"><span class="trial-option-text">Other (please specify)</span></label>
-                                    </div>
-                                    <div class="trial-q-other-wrap" id="trial-q1-other-wrap" style="display:none;">
-                                        <input type="text" class="form-control" name="q1_other_specify" id="trial_q1_other_specify" placeholder="Please specify">
-                                    </div>
-                                    <div class="font-size-16">
-                                        <small class="help-block with-errors"></small>
-                                    </div>
-                                </div>
-                                <div class="form-group trial-question-block">
-                                    <p class="trial-q-label">2. What would you primarily use INDAMI for? (Select all that apply)</p>
-                                    <div class="trial-check-row">
-                                        <label><input type="checkbox" name="q2_indami_use[]" value="Data migration (HDL creation, transformation)"><span class="trial-option-text">Data migration (HDL creation, transformation)</span></label>
-                                    </div>
-                                    <div class="trial-check-row">
-                                        <label><input type="checkbox" name="q2_indami_use[]" value="Data cleansing and validation"><span class="trial-option-text">Data cleansing and validation</span></label>
-                                    </div>
-                                    <div class="trial-check-row">
-                                        <label><input type="checkbox" name="q2_indami_use[]" value="Accelerating implementations"><span class="trial-option-text">Accelerating implementations</span></label>
-                                    </div>
-                                    <div class="trial-check-row">
-                                        <label><input type="checkbox" name="q2_indami_use[]" value="Fixing failed/complex data loads"><span class="trial-option-text">Fixing failed/complex data loads</span></label>
-                                    </div>
-                                    <div class="trial-check-row">
-                                        <label><input type="checkbox" name="q2_indami_use[]" value="Ongoing data management post-go-live"><span class="trial-option-text">Ongoing data management post-go-live</span></label>
-                                    </div>
-                                    <div class="">
-                                        <small class="help-block with-errors"></small>
-                                    </div>
-                                </div>
-                                <div class="form-group trial-question-block">
-                                    <p class="trial-q-label">3. How would you describe your current data migration challenges?</p>
-                                    <div class="trial-radio-row">
-                                        <label><input type="radio" name="q3_migration_challenges" value="No major issues" required><span class="trial-option-text">No major issues</span></label>
-                                    </div>
-                                    <div class="trial-radio-row">
-                                        <label><input type="radio" name="q3_migration_challenges" value="Occasional challenges"><span class="trial-option-text">Occasional challenges</span></label>
-                                    </div>
-                                    <div class="trial-radio-row">
-                                        <label><input type="radio" name="q3_migration_challenges" value="Frequent delays or errors"><span class="trial-option-text">Frequent delays or errors</span></label>
-                                    </div>
-                                    <div class="trial-radio-row">
-                                        <label><input type="radio" name="q3_migration_challenges" value="Critical bottleneck impacting projects"><span class="trial-option-text">Critical bottleneck impacting projects</span></label>
-                                    </div>
-                                    <div class="">
-                                        <small class="help-block with-errors"></small>
-                                    </div>
-                                </div>
-                                <div class="form-group trial-question-block">
-                                    <p class="trial-q-label">4. If INDAMI significantly improved your data migration process, what monthly price range would you consider reasonable?</p>
-                                    <div class="trial-radio-row">
-                                        <label><input type="radio" name="q4_monthly_price_range" value="Less than $50/month" required><span class="trial-option-text">Less than $50/month</span></label>
-                                    </div>
-                                    <div class="trial-radio-row">
-                                        <label><input type="radio" name="q4_monthly_price_range" value="$50 – $150/month"><span class="trial-option-text">$50 – $150/month</span></label>
-                                    </div>
-                                    <div class="trial-radio-row">
-                                        <label><input type="radio" name="q4_monthly_price_range" value="$150 – $500/month"><span class="trial-option-text">$150 – $500/month</span></label>
-                                    </div>
-                                    <div class="trial-radio-row">
-                                        <label><input type="radio" name="q4_monthly_price_range" value="$500 – $1,000/month"><span class="trial-option-text">$500 – $1,000/month</span></label>
-                                    </div>
-                                    <div class="trial-radio-row">
-                                        <label><input type="radio" name="q4_monthly_price_range" value="$1,000+/month"><span class="trial-option-text">$1,000+/month</span></label>
-                                    </div>
-                                    <div class="">
-                                        <small class="help-block with-errors"></small>
-                                    </div>
-                                </div>
-                                <div class="form-group trial-question-block">
-                                    <p class="trial-q-label">5. What outcome would make INDAMI a "must-have" for you?</p>
-                                    <div class="trial-radio-row">
-                                        <label><input type="radio" name="q5_must_have_outcome" value="Saves a few hours per project" required><span class="trial-option-text">Saves a few hours per project</span></label>
-                                    </div>
-                                    <div class="trial-radio-row">
-                                        <label><input type="radio" name="q5_must_have_outcome" value="Reduces errors and rework"><span class="trial-option-text">Reduces errors and rework</span></label>
-                                    </div>
-                                    <div class="trial-radio-row">
-                                        <label><input type="radio" name="q5_must_have_outcome" value="Speeds up implementations significantly"><span class="trial-option-text">Speeds up implementations significantly</span></label>
-                                    </div>
-                                    <div class="trial-radio-row">
-                                        <label><input type="radio" name="q5_must_have_outcome" value="Eliminates major data migration risks"><span class="trial-option-text">Eliminates major data migration risks</span></label>
-                                    </div>
-                                    <div class="trial-radio-row">
-                                        <label><input type="radio" name="q5_must_have_outcome" value="Becomes essential to every project"><span class="trial-option-text">Becomes essential to every project</span></label>
-                                    </div>
-                                    <div class="">
-                                        <small class="help-block with-errors"></small>
-                                    </div>
-                                </div>
-                                <div class="form-group trial-question-block">
-                                    <p class="trial-q-label">6. Are you involved in purchasing tools like this?</p>
-                                    <div class="trial-radio-row">
-                                        <label><input type="radio" name="q6_purchasing_involvement" value="Yes, I make purchasing decisions" required><span class="trial-option-text">Yes, I make purchasing decisions</span></label>
-                                    </div>
-                                    <div class="trial-radio-row">
-                                        <label><input type="radio" name="q6_purchasing_involvement" value="I influence decisions"><span class="trial-option-text">I influence decisions</span></label>
-                                    </div>
-                                    <div class="trial-radio-row">
-                                        <label><input type="radio" name="q6_purchasing_involvement" value="No, but I would recommend it"><span class="trial-option-text">No, but I would recommend it</span></label>
-                                    </div>
-                                    <div class="">
-                                        <small class="help-block with-errors"></small>
-                                    </div>
-                                </div>
-                                <div class="form-group contact-turnstile contact-turnstile-invisible">
-                                    <div id="cf-turnstile-trial" class="cf-turnstile" data-size="invisible"></div>
-                                    <div class="">
-                                        <small class="help-block with-errors turnstile-error"></small>
-                                    </div>
-                                </div>
-                                <button type="submit">Submit</button>
-                                <div class="messages"></div>
-                                <div class="text-center" style="font-size: 14px;">
-                                    By submitting this form, you agree to our <a href="privacy-policy.html" class="font-size-12" target="_blank">Privacy </a> Notice.
-                                </div>
-                            </form>
-                        </div>
+            <div id="privacy-policy-area" class=" row justify-content-center">
+                <div class="col-lg-12">
+                    <div class="content-wrapper privacy-policy-content">
+                        <p>INDAMI&trade; is a product of IMC Technologies Inc. This notice explains what information we collect when you visit <a href="https://www.indami.io">www.indami.io</a>, how we use it, and your choices.</p>
+
+                        <h3>What We Collect</h3>
+                        <p><strong>When you submit a form on this site</strong>, such as a waitlist signup or an Enterprise Pilot Programme application, we collect the information you provide&mdash;including your name, business email address, phone number, company name, and any other details
+                            included in the form.</p>
+                        <p><strong>When you book an Enterprise conversation</strong> via our Google Calendar booking page, we collect your name, business email address, phone number, company name, and role/title.</p>
+                        <p><strong>When you visit this site</strong>, we automatically collect certain technical information, including your IP address, browser type, pages visited, and time spent on the site. We use Google Analytics to collect this information in aggregated, anonymized form to help
+                            us understand
+                            how visitors use the site.</p>
+
+                        <h3>How We Use It</h3>
+                        <p>We use the information you provide to:</p>
+                        <ul>
+                            <li>Contact you about your waitlist position or Enterprise Pilot Programme application</li>
+                            <li>Send you updates about INDAMI&trade;, including product availability, launch timing, and early access opportunities</li>
+                            <li>Improve the performance and content of this website</li>
+                        </ul>
+                        <p class="font-weight-bold">We do not sell your information to anyone.</p>
+
+                        <h3>Who We Share It With</h3>
+                        <p>We share information only with the service providers that help us operate this site and communicate with you&mdash;including our analytics provider and email platform. These providers are only permitted to use your information to perform services on our behalf.</p>
+
+                        <h3>Your Choices</h3>
+                        <p><strong>Email communications:</strong> Every email we send includes an unsubscribe link. You can opt out of marketing communications at any time. You may still receive a direct reply if you submitted an application or inquiry.</p>
+                        <p><strong>Cookies:</strong> You can control cookies through your browser settings. Disabling analytics cookies will not affect your ability to use this site.</p>
+
+                        <h3>A Note on Platform Privacy</h3>
+                        <p>This notice covers the INDAMI&trade; website and its waitlist and early access forms only. When the INDAMI&trade; platform launches and you create an account, a full Privacy Policy will be presented at the time of account creation. That policy will cover how we handle data
+                            within the platform, including uploaded files, session data, and user accounts.</p>
+
+                        <h3>Contact</h3>
+                        <p>For questions about this notice or how we handle your information, contact us at:</p>
+                        <p><a href="mailto:legal@imctechinc.com">legal@imctechinc.com</a></p>
+                        <p>IMC Technologies Inc.</p>
                     </div>
                 </div>
             </div>
