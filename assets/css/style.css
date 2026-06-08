@@ -55,6 +55,13 @@ body {
     overflow-x: hidden;
 }
 
+:root {
+    /* Warm CTA accent — complementary to cool teal brand */
+    --cta-gradient: linear-gradient(135deg, #C62828 0%, #FF6D00 52%, #FFB300 100%);
+    --cta-shadow: 0 10px 28px rgba(198, 40, 40, 0.38), 0 4px 14px rgba(255, 179, 0, 0.3);
+    --cta-border: rgba(255, 255, 255, 0.5);
+}
+
 .version-drak {
     background-color: #040940
 }
@@ -318,15 +325,17 @@ p {
     position: fixed;
     width: 100%;
     z-index: 9999;
-    background: rgba(255, 255, 255, 1);
+    background: -webkit-gradient(linear, left top, right top, from(#03334B), to(#206792), to(#57ECED));
+    background: linear-gradient(90deg, #03334B 0%, #206792 50%, #57ECED 100%);
+    /* background: rgba(255, 255, 255, 1); */
     padding: 0;
     -webkit-box-shadow: 0 8px 16px rgba(13, 21, 75, 0.08);
     box-shadow: 0 8px 16px rgba(13, 21, 75, 0.08);
 }
 
 #header.header-questionnaire {
-    background: -webkit-gradient(linear, left top, right top, from(#206792), to(#57ECED));
-    background: linear-gradient(90deg, #206792 0%, #57ECED 100%);
+    background: -webkit-gradient(linear, left top, right top, from(#03334B), to(#206792), to(#57ECED));
+    background: linear-gradient(90deg, #03334B 0%, #206792 50%, #57ECED 100%);
 }
 
 #header.header-questionnaire.sticky {
@@ -346,28 +355,32 @@ p {
     transition: 0.5s;
 }
 
-#header.sticky:not(.header-questionnaire):not(.two) .navbar-nav .nav-link {
+/* #header.sticky:not(.header-questionnaire):not(.two) .navbar-nav .nav-link {
     color: #3d446f;
-}
+} */
 
 #header.sticky .navbar-nav .nav-item.download-btn .nav-link {
     color: #fff;
 }
 
+#header.sticky:not(.header-questionnaire):not(.two) .navbar-nav .nav-item.download-btn .nav-link {
+    border-color: rgba(198, 40, 40, 0.22);
+}
+
 #header.sticky:not(.header-questionnaire):not(.two) .navbar-nav .nav-link:hover,
 #header.sticky:not(.header-questionnaire):not(.two) .navbar-nav .nav-link.active {
-    color: #206792;
+    color: #fff;
 }
 
 #header.sticky:not(.header-questionnaire):not(.two) .navbar-nav .nav-link.active:after,
 #header.sticky:not(.header-questionnaire):not(.two) .navbar-nav .nav-link:hover:after {
-    border-bottom-color: #206792;
+    border-bottom-color: #fff;
 }
 
 #header.sticky:not(.header-questionnaire):not(.two) .navbar-toggler span,
 #header.sticky:not(.header-questionnaire):not(.two) .navbar-toggler .icon-bar,
 #header.sticky:not(.header-questionnaire):not(.two) .navbar-toggler .icon-bar i {
-    color: #3d446f;
+    color: #fff;
 }
 
 /* #header.sticky:not(.header-questionnaire):not(.two) #navbarContent {
@@ -398,13 +411,14 @@ p {
 }
 
 .navbar-nav .nav-item.download-btn .nav-link {
-    -webkit-box-shadow: 0px 10px 30px 0px rgba(21, 10, 82, 0.35);
-    box-shadow: 0px 10px 30px 0px rgba(21, 10, 82, 0.35);
-    background: -webkit-gradient(linear, left top, right top, from(#206792), to(#57ECED));
-    background: linear-gradient(90deg, #206792 0%, #57ECED 100%);
+    background: var(--cta-gradient);
+    -webkit-box-shadow: var(--cta-shadow);
+    box-shadow: var(--cta-shadow);
+    border: 1px solid var(--cta-border);
     border-radius: 25px;
     padding: 10px 34px;
-    background-size: 100% auto
+    background-size: 100% auto;
+    color: #fff;
 }
 
 .navbar-nav .nav-item.download-btn .nav-link:after {
@@ -691,9 +705,11 @@ p {
 }
 
 .caption-btns a.bg {
-    background-image: -webkit-gradient(linear, left top, right top, from(#206792), to(#57ECED));
-    background-image: linear-gradient(90deg, #206792 0%, #57ECED 100%);
+    background-image: var(--cta-gradient);
     background-size: 100% auto;
+    -webkit-box-shadow: var(--cta-shadow);
+    box-shadow: var(--cta-shadow);
+    border: 1px solid var(--cta-border);
     padding: 12px 30px;
     border-radius: 30px
 }
@@ -1052,10 +1068,10 @@ p {
 }
 
 .load-more-btn a {
-    background-image: -webkit-gradient(linear, left top, right top, from(#206792), to(#57ECED));
-    background-image: linear-gradient(90deg, #206792 0%, #57ECED 100%);
-    -webkit-box-shadow: 0px 10px 30px 0px rgba(21, 10, 82, 0.35);
-    box-shadow: 0px 10px 30px 0px rgba(21, 10, 82, 0.35);
+    background-image: var(--cta-gradient);
+    -webkit-box-shadow: var(--cta-shadow);
+    box-shadow: var(--cta-shadow);
+    border: 1px solid var(--cta-border);
     display: inline-block;
     border-radius: 25px;
     margin-top: 50px;
@@ -2202,7 +2218,10 @@ p {
 }
 
 .price-tbl-single a.special {
-    background: linear-gradient(45deg, #206792 0%, #57ECED 100%);
+    background: var(--cta-gradient);
+    -webkit-box-shadow: var(--cta-shadow);
+    box-shadow: var(--cta-shadow);
+    border: 1px solid var(--cta-border);
 }
 
 .price-tbl-single a:hover {
@@ -3251,9 +3270,6 @@ p {
     font-size: 14px;
     font-weight: 700;
     border-radius: 5px;
-    background-image: linear-gradient(45deg, #206792 0%, #57ECED 100%);
-    -webkit-box-shadow: 0px 10px 30px 0px rgba(21, 10, 82, 0.35);
-    box-shadow: 0px 10px 30px 0px rgba(21, 10, 82, 0.35);
     border: 0;
     color: #fff;
     margin: 25px 0 0;
@@ -3366,6 +3382,22 @@ p {
     margin-top: 20px;
 }
 
+.btn-submit {
+    background: var(--cta-gradient);
+    -webkit-box-shadow: var(--cta-shadow);
+    box-shadow: var(--cta-shadow);
+    border: 1px solid var(--cta-border);
+    border-radius: 25px;
+}
+
+.btn-submit:hover {
+    background-size: 200% auto
+}
+
+.btn-submit:after {
+    border: 0
+}
+
 /*-------------------------------------------------------------------------------------
     footer area
 ---------------------------------------------------------------------------------------*/
@@ -3375,7 +3407,7 @@ p {
     background-image: linear-gradient(90deg, #206792 0%, #57ECED 100%);
     background-repeat: no-repeat;
     background-position: bottom;
-    padding: 50px 0 0
+    padding: 30px 0 0
 }
 
 /* #footer.bg-1 {
@@ -3406,10 +3438,10 @@ p {
 .get-started a {
     display: inline-block;
     float: right;
-    background-image: -webkit-gradient(linear, left top, right top, from(#206792), to(#57ECED));
-    background-image: linear-gradient(90deg, #206792 0%, #57ECED 100%);
-    -webkit-box-shadow: 0px 10px 30px 0px rgba(21, 10, 82, 0.35);
-    box-shadow: 0px 10px 30px 0px rgba(21, 10, 82, 0.35);
+    background-image: var(--cta-gradient);
+    -webkit-box-shadow: var(--cta-shadow);
+    box-shadow: var(--cta-shadow);
+    border: 1px solid var(--cta-border);
     color: #fff;
     padding: 15px 25px;
     border-radius: 30px;
