@@ -168,14 +168,21 @@
     /*---------------------------------------------------
         sticky header
     ----------------------------------------------------*/
-    $(window).on('scroll', function () {
-        var scroll = $(window).scrollTop();
-        if (scroll < 100) {
+    function getScrollTop() {
+        return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    }
+
+    function updateStickyHeader() {
+        if (getScrollTop() < 100) {
             $("#header").removeClass("sticky");
         } else {
             $("#header").addClass("sticky");
         }
-    });
+    }
+
+    $(window).on('scroll', updateStickyHeader);
+    $(window).on('load', updateStickyHeader);
+    updateStickyHeader();
 
     /*---------------------------------------------------
         accordian
