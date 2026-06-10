@@ -63,29 +63,33 @@
         var $owlFeatures = $(".awesome-feat-carousel"),
             $featureLinks = $(".feature-link");
         $owlFeatures.owlCarousel({
-                loop: !0,
-                responsiveClass: !0,
-                margin: 30,
-                nav: true,
-                dots: !1,
-                navText: ['<i class="icon-left-arrow"></i>', '<i class="icon-arrow-pointing-to-right"></i>'],
-                responsive: {
-                    0: {
-                        items: 1
-                    },
-                    768: {
-                        items: 1
-                    },
-                    991: {
-                        items: 2
-                    },
-                    1200: {
-                        items: 2
-                    },
-                    1920: {
-                        items: 3
-                    }
+            loop: !0,
+            responsiveClass: !0,
+            margin: 30,
+            nav: true,
+            dots: !1,
+            navText: ['<i class="icon-left-arrow"></i>', '<i class="icon-arrow-pointing-to-right"></i>'],
+            responsive: {
+                0: {
+                    items: 1
+                },
+                768: {
+                    items: 1
+                },
+                991: {
+                    items: 2
+                },
+                1200: {
+                    items: 2
+                },
+                1920: {
+                    items: 3
                 }
+            }
+        }),
+            $owlFeatures.on("initialized.owl.carousel refreshed.owl.carousel resized.owl.carousel changed.owl.carousel", function () {
+                if ($(window).width() < 1920) return;
+                $owlFeatures.find(".owl-nav, .owl-nav .owl-prev, .owl-nav .owl-next").removeClass("disabled");
             }),
             $owlFeatures.on("changed.owl.carousel", function (e) {
                 var o = e.item.index + 1 - e.relatedTarget._clones.length / 2,

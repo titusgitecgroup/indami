@@ -1100,7 +1100,7 @@ p {
     padding: 140px 0 126px;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: 0 center;
 }
 
 #about-area.bg-1 {
@@ -1675,6 +1675,20 @@ p {
 
 .awesome-feat-carousel.owl-carousel .owl-nav .owl-next {
     left: 75px;
+}
+
+@media (min-width: 1920px) {
+    .awesome-feat-carousel.owl-carousel .owl-nav.disabled {
+        display: block;
+    }
+
+    .awesome-feat-carousel.owl-carousel .owl-nav .owl-prev.disabled,
+    .awesome-feat-carousel.owl-carousel .owl-nav .owl-next.disabled {
+        display: block;
+        opacity: 1;
+        pointer-events: auto;
+        cursor: pointer;
+    }
 }
 
 .awesome-feat-img .feature-link {
