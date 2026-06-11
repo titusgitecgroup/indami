@@ -177,7 +177,6 @@
 
     #contact-area {
         background-size: 70%;
-        padding: 70px 0;
         margin-bottom: 0;
     }
 
@@ -536,7 +535,6 @@
     }
 
     #contact-area {
-        padding: 70px 0 50px;
         margin-bottom: 0;
         background-position: 100%;
         background-size: 50%;
@@ -774,7 +772,8 @@
     }
 
     .video.title {
-        padding-bottom: 500px;
+        padding-top: 50px;
+        padding-bottom: 0;
     }
 
     #video-area {
@@ -828,7 +827,7 @@
     }
 
     #pricing-area {
-        padding: 100px 0 275px;
+        padding: 50px 0 0;
     }
 
     #team-area {
@@ -935,7 +934,6 @@
     }
 
     #contact-area {
-        padding: 60px 0 30px;
         margin-bottom: 0;
     }
 
@@ -1057,7 +1055,7 @@
     }
 
     #pricing-wrap {
-        margin-bottom: 490px;
+        margin-bottom: 0;
         margin-top: 20px
     }
 
@@ -1267,6 +1265,16 @@
         background-image: none;
     }
 
+    .counter-single .icon svg {
+        margin-left: -20px !important;
+        margin-top: -20px !important;
+    }
+
+    .video-cont {
+        position: relative;
+        top: 0;
+    }
+
 }
 
 
@@ -1391,7 +1399,8 @@
     }
 
     .video.title {
-        padding-bottom: 350px;
+        padding-top: 50px;
+        padding-bottom: 0;
     }
 
     #video-area.bg-2 {
@@ -1450,7 +1459,7 @@
     }
 
     #pricing-area {
-        padding: 80px 0 290px;
+        padding: 50px 0 0;
     }
 
     #team-area {
@@ -1563,7 +1572,6 @@
     }
 
     #contact-area {
-        padding: 70px 0 30px;
         margin-bottom: 0;
     }
 
@@ -1685,7 +1693,7 @@
     }
 
     #pricing-wrap {
-        margin-bottom: 460px;
+        margin-bottom: 0;
         margin-top: 20px
     }
 
@@ -1992,6 +2000,16 @@
         right: 10px
     }
 
+    .counter-single .icon svg {
+        margin-left: -20px !important;
+        margin-top: -20px !important;
+    }
+
+    .video-cont {
+        position: relative;
+        top: 0;
+    }
+
 }
 
 
@@ -2112,7 +2130,8 @@
     }
 
     .video.title {
-        padding-bottom: 350px;
+        padding-top: 50px;
+        padding-bottom: 0;
     }
 
     #video-area {
@@ -2169,7 +2188,7 @@
     }
 
     #pricing-area {
-        padding: 80px 0 240px;
+        padding: 50px 0 0;
     }
 
     #team-area {
@@ -2281,7 +2300,6 @@
     }
 
     #contact-area {
-        padding: 70px 0 30px;
         margin-bottom: 0;
     }
 
@@ -2403,7 +2421,7 @@
     }
 
     #pricing-wrap {
-        margin-bottom: 460px;
+        margin-bottom: 0;
         margin-top: 20px
     }
 

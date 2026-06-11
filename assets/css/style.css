@@ -47,6 +47,14 @@ body {
     padding: 0;
 }
 
+html {
+    scroll-padding-top: 100px;
+}
+
+[data-scroll-index] {
+    scroll-margin-top: 100px;
+}
+
 html,
 body {
     overflow-x: hidden;
@@ -320,9 +328,9 @@ p {
     top: 0;
     width: 100%;
     z-index: 99;
-    padding: 10px 0;
-    -webkit-transition: 0.5s;
-    transition: 0.5s;
+    padding: 0;
+    -webkit-transition: padding 0.5s, box-shadow 0.5s;
+    transition: padding 0.5s, box-shadow 0.5s;
 }
 
 #header.sticky {
@@ -333,8 +341,8 @@ p {
     background: linear-gradient(90deg, #03334B 0%, #206792 50%, #57ECED 100%);
     /* background: rgba(255, 255, 255, 1); */
     padding: 0;
-    -webkit-box-shadow: 0 8px 16px rgba(13, 21, 75, 0.08);
-    box-shadow: 0 8px 16px rgba(13, 21, 75, 0.08);
+    -webkit-box-shadow: 0 8px 16px rgba(13, 21, 75, 0.15);
+    box-shadow: 0 8px 8px rgba(13, 21, 75, 0.15);
 }
 
 #header.header-questionnaire {
@@ -1239,17 +1247,11 @@ p {
 
 #video-area {
     padding: 60px 0;
-    background-repeat: no-repeat;
-    background-position: bottom;
     position: relative;
 }
 
 #video-area.bg-1 {
     background-color: #03334B;
-    /* background-image: url(../images/counter-bg-1.svg);
-    background-position: top center;
-    background-repeat: no-repeat;
-    background-size: 100% auto; */
 }
 
 #video-area.bg-2 {
@@ -2790,7 +2792,7 @@ p {
 ---------------------------------------------------------------------------------------*/
 
 #faq-area {
-    margin: 118px 0 100px;
+    padding: 118px 0 100px;
     background-repeat: no-repeat;
     background-position: left;
     background-size: 25% 95%;
@@ -2830,22 +2832,27 @@ p {
     background-color: #0084ff;
 }
 
-.card .card-header.active {
+.card .card-header.active,
+.card .card-header:has(a[aria-expanded="true"]) {
     border-radius: 10px 10px 0 0
 }
 
 .card .card-header.active,
+.card .card-header:has(a[aria-expanded="true"]),
 .card .card-header:hover {
+    background-color: transparent;
     background-image: -webkit-gradient(linear, left top, right top, from(#206792), to(#57ECED));
     background-image: linear-gradient(90deg, #206792 0%, #57ECED 100%);
 }
 
 .card.two .card-header.active,
+.card.two .card-header:has(a[aria-expanded="true"]),
 .card.two .card-header:hover {
     background-image: linear-gradient(45deg, rgb(157, 91, 254) 0%, rgb(56, 144, 254) 100%);
 }
 
 .card .card-header.active a,
+.card .card-header:has(a[aria-expanded="true"]) a,
 .card .card-header:hover a,
 .card-body p,
 .card.v-dark .card-header a {
@@ -2869,9 +2876,14 @@ p {
     right: 30px
 }
 
-.card .card-header.active a:after {
+.card .card-header.active a:after,
+.card .card-header:has(a[aria-expanded="true"]) a:after {
     content: '\eab9';
     font-family: 'IcoFont'
+}
+
+#faq-area #accordion {
+    overflow-anchor: none;
 }
 
 .card-body {

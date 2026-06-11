@@ -159,9 +159,58 @@
         });
 
         /*---------------------------------------------------
-            scrollIt plugin activation
+            section scroll (scrollIt with header offset)
         ----------------------------------------------------*/
-        $.scrollIt();
+        function getHeaderScrollOffset() {
+            var $header = $('#header');
+            var wasSticky = $header.hasClass('sticky');
+
+            $header.addClass('sticky');
+            var height = $header.outerHeight() || 100;
+            if (!wasSticky) {
+                $header.removeClass('sticky');
+            }
+
+            return -height;
+        }
+
+        function scrollToSection(index) {
+            var $target = $('[data-scroll-index="' + index + '"]');
+            if (!$target.length) {
+                return;
+            }
+
+            var top = $target.offset().top + getHeaderScrollOffset() + 1;
+            $('html, body').animate({ scrollTop: Math.max(0, top) }, 600);
+        }
+
+        function updateActiveSectionNav() {
+            var scrollTop = getScrollTop();
+            var offset = getHeaderScrollOffset();
+            var $activeSection = $('[data-scroll-index]').filter(function () {
+                var $section = $(this);
+                var sectionTop = $section.offset().top + offset;
+                return scrollTop >= sectionTop && scrollTop < sectionTop + $section.outerHeight();
+            });
+            var index = $activeSection.first().attr('data-scroll-index');
+
+            if (index === undefined) {
+                return;
+            }
+
+            $('[data-scroll-nav]').removeClass('active');
+            $('[data-scroll-nav="' + index + '"]').addClass('active');
+        }
+
+        $('body').on('click', '[data-scroll-nav], [data-scroll-goto]', function (e) {
+            e.preventDefault();
+            var index = $(this).closest('[data-scroll-nav]').attr('data-scroll-nav') || $(this).attr('data-scroll-goto');
+            scrollToSection(parseInt(index, 10));
+        });
+
+        $(window).on('scroll', updateActiveSectionNav);
+        $(window).on('resize', updateActiveSectionNav);
+        updateActiveSectionNav();
 
     });
 
@@ -172,11 +221,17 @@
         return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
     }
 
+    var isHeaderSticky = false;
+
     function updateStickyHeader() {
-        if (getScrollTop() < 100) {
-            $("#header").removeClass("sticky");
-        } else {
+        var scrollTop = getScrollTop();
+
+        if (!isHeaderSticky && scrollTop >= 100) {
+            isHeaderSticky = true;
             $("#header").addClass("sticky");
+        } else if (isHeaderSticky && scrollTop < 50) {
+            isHeaderSticky = false;
+            $("#header").removeClass("sticky");
         }
     }
 
@@ -187,11 +242,11 @@
     /*---------------------------------------------------
         accordian
     ----------------------------------------------------*/
-    $('.collapse').on('shown.bs.collapse', function () {
+    $('#faq-area .collapse').on('show.bs.collapse', function () {
         $(this).prev().addClass('active');
     });
 
-    $('.collapse').on('hidden.bs.collapse', function () {
+    $('#faq-area .collapse').on('hide.bs.collapse', function () {
         $(this).prev().removeClass('active');
     });
 
