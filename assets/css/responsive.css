@@ -775,7 +775,7 @@
 
     .video.title {
         padding-top: 0;
-        padding-bottom: 0;
+        padding-bottom: 50px;
     }
 
     #video-area {
