@@ -44,6 +44,10 @@
     .core-feature-single {
         min-height: 360px;
     }
+
+    .price-tbl-single {
+        min-height: 330px;
+    }
 }
 
 @media only screen and (min-width: 1201px) and (max-width: 1279px) {
@@ -2738,5 +2742,84 @@
 
     .trial-signup-form .trial-q-label {
         font-size: 14px;
+    }
+}
+
+/*--------------------------------------------------------------
+    mobile / tablet: sticky header + nav toggler (indami pages only)
+----------------------------------------------------------------*/
+
+@media only screen and (max-width: 991px) {
+    .indami-page {
+        scroll-padding-top: 72px;
+    }
+
+    .indami-page [data-scroll-index] {
+        scroll-margin-top: 72px;
+    }
+
+    .indami-page #header .navbar {
+        padding: 0.5rem 0;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .indami-page #header .navbar .container {
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .indami-page #header .navbar .logo {
+        margin-right: 12px;
+        padding-left: 2px;
+    }
+
+    .indami-page #header .navbar .logo svg {
+        height: 52px !important;
+        width: auto !important;
+        max-width: 160px;
+    }
+
+    .indami-page #header.sticky {
+        padding: 0;
+    }
+
+    .indami-page #header.sticky .navbar {
+        padding: 0.35rem 0;
+    }
+
+    .indami-page #header.sticky .navbar .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .indami-page #header.sticky .navbar .logo svg {
+        height: 44px !important;
+        max-width: 140px;
+    }
+
+    .indami-page #header.sticky #navbarContent,
+    .indami-page #navbarContent {
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .indami-page .navbar-toggler {
+        margin-left: auto;
+        margin-right: 2px;
+        padding: 0.4rem;
+    }
+
+    .indami-page .navbar-nav .nav-item.download-btn .nav-link {
+        display: inline-block;
+        white-space: normal;
+        text-align: center;
     }
 }

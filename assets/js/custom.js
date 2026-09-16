@@ -205,7 +205,21 @@
         $('body').on('click', '[data-scroll-nav], [data-scroll-goto]', function (e) {
             e.preventDefault();
             var index = $(this).closest('[data-scroll-nav]').attr('data-scroll-nav') || $(this).attr('data-scroll-goto');
+
+            if ($('#navbarContent').hasClass('show')) {
+                $('.navbar-toggler').attr('aria-expanded', 'false').addClass('collapsed');
+                $('#navbarContent').collapse('hide');
+            }
+
             scrollToSection(parseInt(index, 10));
+        });
+
+        $('#navbarContent').on('show.bs.collapse', function () {
+            $('.navbar-toggler').attr('aria-expanded', 'true');
+        });
+
+        $('#navbarContent').on('hide.bs.collapse', function () {
+            $('.navbar-toggler').attr('aria-expanded', 'false');
         });
 
         $(window).on('scroll', updateActiveSectionNav);

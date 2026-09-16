@@ -2152,7 +2152,6 @@ p {
     left: 0;
     border: 3px solid #d7d9dd;
     border-radius: 10px;
-    min-height: 330px;
 }
 
 .price-tbl-single .table-inner {
@@ -4118,6 +4117,36 @@ p {
 .navbar .logo svg {
     height: 80px !important;
     width: auto !important;
+}
+
+.indami-page .navbar-toggler {
+    border: 0;
+    padding: 0.25rem;
+    line-height: 1;
+}
+
+.indami-page .navbar-toggler:focus {
+    outline: 0;
+    box-shadow: none;
+}
+
+.indami-page .navbar-toggler .icon-bar {
+    display: inline-block;
+    color: #fff;
+    font-size: 30px;
+    line-height: 1;
+}
+
+.indami-page .navbar-toggler .icon-bar-close {
+    display: none;
+}
+
+.indami-page .navbar-toggler[aria-expanded="true"] .icon-bar-menu {
+    display: none;
+}
+
+.indami-page .navbar-toggler[aria-expanded="true"] .icon-bar-close {
+    display: inline-block;
 }
 
 .landing-logo-glow,
