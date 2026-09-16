@@ -883,7 +883,6 @@ p {
     -webkit-transition: 0.3s;
     transition: 0.3s;
     overflow: visible;
-    min-height: 360px;
 }
 
 .core-feature-single .hover-shape {
