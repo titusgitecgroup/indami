@@ -253,6 +253,10 @@
     .post-cont {
         margin: 0 10px;
     }
+
+    .core-feature-single {
+        min-height: 360px;
+    }
 }
 
 
@@ -1322,8 +1326,7 @@
     }
 
     #navbarContent {
-        background: -webkit-gradient(linear, left top, right top, from(#206792), to(#57ECED));
-        background: linear-gradient(90deg, #206792 0%, #57ECED 100%);
+        background: rgba(32, 103, 146, 0.5);
     }
 
     .navbar-nav .nav-item {
@@ -2746,10 +2749,11 @@
 }
 
 /*--------------------------------------------------------------
-    mobile / tablet: sticky header + nav toggler (indami pages only)
+    mobile / tablet / iPad: sticky header + nav toggler (indami pages only)
+    Matches Bootstrap navbar-expand-xl (collapse below 1200px)
 ----------------------------------------------------------------*/
 
-@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 1199px) {
     .indami-page {
         scroll-padding-top: 72px;
     }
@@ -2802,6 +2806,40 @@
         max-width: 140px;
     }
 
+    .indami-page .navbar-nav {
+        padding: 20px 30px 35px;
+    }
+
+    .indami-page #navbarContent {
+        background: -webkit-gradient(linear, left top, right top, from(#206792), to(#57ECED));
+        background: linear-gradient(90deg, #206792 0%, #57ECED 100%);
+    }
+
+    .indami-page .navbar-nav .nav-item {
+        padding: 4px 0;
+    }
+
+    .indami-page .navbar-nav .nav-link {
+        display: inline-block;
+    }
+
+    .indami-page .navbar-nav .nav-item.download-btn .nav-link {
+        display: inline-block;
+        margin: 16px 0 0;
+        white-space: normal;
+        text-align: center;
+    }
+
+    .indami-page .navbar-nav .nav-link.active::after,
+    .indami-page .navbar-nav .nav-link:hover::after {
+        right: auto;
+    }
+
+    .indami-page .navbar-toggler span {
+        color: #fff;
+        font-size: 30px;
+    }
+
     .indami-page #header.sticky #navbarContent,
     .indami-page #navbarContent {
         max-height: calc(100vh - 70px);
@@ -2809,17 +2847,13 @@
         -webkit-overflow-scrolling: touch;
         padding-left: 8px;
         padding-right: 8px;
+        margin-block: 1rem;
+        border-radius: 1rem;
     }
 
     .indami-page .navbar-toggler {
         margin-left: auto;
         margin-right: 2px;
         padding: 0.4rem;
-    }
-
-    .indami-page .navbar-nav .nav-item.download-btn .nav-link {
-        display: inline-block;
-        white-space: normal;
-        text-align: center;
     }
 }
